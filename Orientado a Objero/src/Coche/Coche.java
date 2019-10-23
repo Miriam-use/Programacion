@@ -2,11 +2,11 @@ package Coche;
 
 public class Coche {
 	
-	//atributos
+	//atributo
 	String marca;
 	String modelo;
 	
-	//constructores
+	//constructor
 	Coche(){
 		marca="ford";
 		modelo="focus";
@@ -17,7 +17,7 @@ public class Coche {
 		modelo=mod;
 	}
 	
-	//metodos
+	//metodo
 	public void setMarca(String mar) {
 		marca=mar;
 	}
