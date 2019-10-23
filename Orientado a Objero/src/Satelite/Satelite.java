@@ -23,6 +23,14 @@ public class Satelite {
 		distancia_tierra=d;
 	}
 	
+	public double setDistancia_tierra(){
+		return distancia_tierra;
+	}
+	
+	public double setDistancia_tierra(double distancia_tierra) {
+		return this.distancia_tierra = distancia_tierra;
+	}
+	
 	public void printPosicion() {
 		System.out.println("El satélite se encuentra en el parametro "+paralelo+" Meridiano "+meridiano+" a una distancia de la tierra de "+distancia_tierra+"kilometros");
 	}

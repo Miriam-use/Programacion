@@ -8,7 +8,6 @@ public class Main {
 		s1.setPosicion(5, 7, 3);
 		s1.printPosicion();
 		s2.printPosicion();
-
 	}
 
 }
