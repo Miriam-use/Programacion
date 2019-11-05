@@ -6,7 +6,7 @@ public class MainCuenta {
 		
 		Cuenta cuenta = new Cuenta ();
 		
-		cuenta.setSaldo(0);
+		cuenta.setSaldo(500);
 		cuenta.setIngresar(10);
 		cuenta.setRetirar(100);
 		
