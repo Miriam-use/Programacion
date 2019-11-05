@@ -41,7 +41,11 @@ public class Cuenta {
 	}
 	
 	public void setRetirar(double retira) {
-		this.retira=saldo-retira;
+		if(saldo<=0) {
+			String retira2="No tienes saldo";
+		}else {
+			this.retira=saldo-retira;
+		}
 	}
 	
 	public double getRetirar() {
