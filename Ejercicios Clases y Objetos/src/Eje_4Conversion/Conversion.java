@@ -3,8 +3,8 @@ package Eje_4Conversion;
 public class Conversion {
 
 	private int conversion;
-	private int millasAKilometros;
-	private int millasAMetros;
+	private double millasAKilometros;
+	private double millasAMetros;
 	
 	public Conversion() {
 		conversion=1;
@@ -21,7 +21,7 @@ public class Conversion {
 		millasAMetros=metro;
 	}
 	
-	public int getmillasAMetros() {
+	public double getmillasAMetros() {
 		return millasAMetros=conversion*1852;
 	}
 	
@@ -29,7 +29,7 @@ public class Conversion {
 		millasAKilometros=km;
 	}
 	
-	public int getmillasAKilometros() {
-		return millasAKilometros=conversion*(1852000);
+	public double getmillasAKilometros() {
+		return millasAKilometros=conversion*(1.852);
 	}
 }
