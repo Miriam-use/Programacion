@@ -8,10 +8,10 @@ public class Punto {
 	protected int yB;
 	
 	Punto(){
-		this.xA=0;
-		this.yA=0;
-		this.xB=0;
-		this.yB=0;
+		this.xA=5;
+		this.yA=8;
+		this.xB=20;
+		this.yB=3;
 	}
 	
 	public void Punto(int xA,int yA,int xB,int yB){

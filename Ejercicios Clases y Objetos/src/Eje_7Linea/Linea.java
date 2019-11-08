@@ -23,11 +23,11 @@ public class Linea extends Punto {
 	}
 	
 	public void mueveDerecha(double derch) {
-		this.derch = derch;
+		this.derch = 4;
 	}
 	
 	public void mueveIzquierda(double izq) {
-		this.izq = izq;
+		this.izq = 2;
 	}
 	
 	public String Mover() {
