@@ -1,4 +1,4 @@
-package Eje_6Cuenta;
+package Eje3_Cuenta;
 
 public class Cuenta {
 
@@ -10,7 +10,7 @@ public class Cuenta {
 	
 	
 	public Cuenta() {
-		numero++;
+		numero = 100001;
 		dni=12345678;
 		interes=0.5;
 	}

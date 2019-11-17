@@ -8,6 +8,12 @@ public class MainConversion {
 		
 		System.out.println(conversion.getValor()+" millas, en metros es: "+conversion.getmillasAMetros()+" metro");
 		System.out.println("y en kilometros es: "+conversion.getmillasAKilometros()+" kilometro");
+	
+	
+	conversion.setValor(10);
+	
+	System.out.println(conversion.getValor()+" millas, en metros es: "+conversion.getmillasAMetros()+" metro");
+	System.out.println("y en kilometros es: "+conversion.getmillasAKilometros()+" kilometro");
+	
 	}
-
 }

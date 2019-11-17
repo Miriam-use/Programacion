@@ -1,37 +1,40 @@
 package Eje_7Linea;
 
-public class Linea extends Punto {
+public class Linea {
 
-	private int[] puntoA, puntoB;
-	private double derch;
-	private double izq;
+	private int[] _puntoA, _puntoB;
 	
 	Linea(){
-		this.puntoA = puntoA;
-		this.puntoB = puntoB;
-	}
-	
-	public void Datos() {
-		puntoA = new int[2];
-		puntoB = new int[2];
+		this._puntoA=_puntoA;
+		this._puntoB=_puntoB;
 		
-		puntoA[0] = xA;
-		puntoA[1] = yA;
+		/*asignando memoria para 2 enteros
+		pntA = new int [2];
+		pntB = new int [2];
 		
-		puntoB[0] = xB;
-		puntoB[1] = yB;
+		//asignar los valores
+		pntA[0] = 0;
+		pntA[1] = 0;
+		
+		pntB[0] = 0;
+		pntB[1] = 0;
+		*/
 	}
 	
-	public void mueveDerecha(double derch) {
-		this.derch = 4;
+	public double moverDerecha(double dech) {
+		return dech;
 	}
 	
-	public void mueveIzquierda(double izq) {
-		this.izq = 2;
+	public double moverIzquierda(double izq) {
+		return izq;
 	}
 	
-	public String Mover() {
-		return "[("+(puntoA[0] + derch)+","+(puntoA[1] + derch)+") , ("+(puntoB[0] - izq)+","+(puntoB[1] - izq+")]");
+	public double mueveArriba(double arriba) {
+		return arriba;
+	}
+	
+	public double mueveAbajo(double abajo) {
+		return abajo;
 	}
 	
 }

@@ -1,4 +1,4 @@
-package Eje_6Cuenta;
+package Eje3_Cuenta;
 
 public class MainCuenta {
 

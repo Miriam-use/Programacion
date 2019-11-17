@@ -17,19 +17,12 @@ public class Conversion {
 	public void setValor(int i) {
 		conversion = i;
 	}
-	public void setmillasAMetros(int metro) {
-		millasAMetros=metro;
-	}
 	
 	public double getmillasAMetros() {
 		return millasAMetros=conversion*1852;
 	}
 	
-	public void setmillasAKilometros(int km) {
-		millasAKilometros=km;
-	}
-	
 	public double getmillasAKilometros() {
-		return millasAKilometros=conversion*(1.852);
+		return millasAKilometros=conversion*1.852;
 	}
 }

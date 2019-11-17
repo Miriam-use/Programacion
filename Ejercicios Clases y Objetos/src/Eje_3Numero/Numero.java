@@ -1,4 +1,15 @@
 package Eje_3Numero;
+/**Realiza una clase número que almacene un número entero y tenga las
+siguientes características:
+a. Constructor por defecto que inicializa a 0 el número interno.
+b. Constructor que inicializa el número interno.
+c. Método aniade que permite sumarle un número al valor interno.
+d. Método resta que resta un número al valor interno.
+e. Método getValor. Devuelve el valor interno.
+f. Método getDoble. Devuelve el doble del valor interno.
+g. Método getTriple. Devuelve el triple del valor interno.
+h. Método setNumero. Inicializa de nuevo el valor interno.
+ */
 
 public class Numero {
 
