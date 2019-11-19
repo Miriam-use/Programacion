@@ -35,11 +35,12 @@ public class Cuenta {
 		return ingresa;
 	}
 	
+	//Mira si tiene saldo suficiente para retirar
 	public String Retirar(double retira) {
 		if((ingresa-retira)>0) {
-			return "Su saldo actual es: "+(ingresa-retira);
+			return "Su saldo actual es: "+(ingresa-retira); 	//Si tiene saldo se hace la retirada
 		}else {
-			return "No tiene saldo";
+			return "No tiene saldo";	//Si no tiene salta el mensage
 		}
 	}
 

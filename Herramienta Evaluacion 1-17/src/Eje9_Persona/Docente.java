@@ -16,11 +16,14 @@ public class Docente {
 		this.pagohora = (hora * pago);
 	}
 	
-	public String
+	public String getInformacion() {
+		return codigo+" "+categoria+" "+estudio+"\n"+pagohora;
+	}
 	
 	public static void main(String[] args) {
 		
-		Docente docen = new Docente(1025, "Tecnico", "Mecanica");
-		System.out.println();
+		Docente docen = new Docente(1025, "Mecanica", "Tecnico");
+		docen.setPagoParcial(5, 10);
+		System.out.println(docen.getInformacion());
 	}
 }

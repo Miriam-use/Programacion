@@ -17,12 +17,25 @@ public class Estudiante {
 	}
 	
 	public String getDescuento() {
-		if(rango<13) {
-			return "Se le aplica un descuento de 0%"+rango;
+		if(rango<=13) {
+			return "Se le aplica un descuento de 0% : "+rango;
 		}if(rango>13 && rango <16) {
-			return "Se le aplica un descuento de 8%"+(rango-0.08);
+			return "Se le aplica un descuento de 8% : "+(rango-0.08);
+		}if(rango>=16) {
+			return "Se le aplica un descuento de 15% : "+(rango-0.15);
 		}else {
-			return "Se le aplica un descuento de 15%"+(rango+0.15);
+			return "ERROR";
 		}
+	}
+	
+	public String getEstudio() {
+		return colegio+" "+cate+" "+cod+"\n"+getDescuento();
+	}
+	
+	public static void main(String[] args) {
+		
+		Estudiante estu = new Estudiante("ies San Jose", "Tecnico", 1025);
+		estu.setDescuento(14.5);
+		System.out.println(estu.getEstudio());
 	}
 }

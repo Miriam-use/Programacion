@@ -4,7 +4,7 @@ public class Vehiculo {
 	
 	private String marca;
 	private double potencia;
-	private boolean traccion;
+	private boolean traccion; //Solo acepta si es verdadero o farso
 	
 	Vehiculo(String mar, double pot, boolean tra) {
 		marca = mar;
