@@ -1,5 +1,7 @@
 package Eje9_Persona;
 
+import java.util.Scanner;
+
 public class Estudiante {
 
 	private int cod;
@@ -12,30 +14,23 @@ public class Estudiante {
 		this.cod = cod;
 	}
 	
-	public void setDescuento(double pagopension) {
-		this.rango = pagopension;
+	public void setRando(double ran) {
+		this.rango = ran;
 	}
 	
-	public String getDescuento() {
-		if(rango<=13) {
-			return "Se le aplica un descuento de 0% : "+rango;
-		}if(rango>13 && rango <16) {
-			return "Se le aplica un descuento de 8% : "+(rango-0.08);
-		}if(rango>=16) {
-			return "Se le aplica un descuento de 15% : "+(rango-0.15);
+	public void setPago(double pago) {
+		this.pagopension = pago;
+	}
+	
+	public String getDescuento() {	
+		if(pagopension<=13) {
+			return "Se le aplica un descuento de 0% : "+pagopension;
+		}if(pagopension>13 && pagopension <16) {
+			return "Se le aplica un descuento de 8% : "+(pagopension-0.08);
+		}if(pagopension>=16) {
+			return "Se le aplica un descuento de 15% : "+(pagopension-0.15);
 		}else {
 			return "ERROR";
 		}
-	}
-	
-	public String getEstudio() {
-		return colegio+" "+cate+" "+cod+"\n"+getDescuento();
-	}
-	
-	public static void main(String[] args) {
-		
-		Estudiante estu = new Estudiante("ies San Jose", "Tecnico", 1025);
-		estu.setDescuento(14.5);
-		System.out.println(estu.getEstudio());
 	}
 }

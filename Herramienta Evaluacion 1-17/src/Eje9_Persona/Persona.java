@@ -16,9 +16,4 @@ public class Persona {
 		return nombre+" "+apellido+" "+sexo+"\n"+dni;
 	}
 	
-	public static void main(String[] args) {
-		
-		Persona perso = new Persona("Garcia", "Mario", "Hombre", 12345678);
-		System.out.println(perso.getDatosPersona());
-	}
 }
