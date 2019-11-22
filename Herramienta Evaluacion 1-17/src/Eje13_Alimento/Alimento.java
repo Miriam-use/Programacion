@@ -1,47 +1,56 @@
 package Eje13_Alimento;
 
-public class Alimento {
+public class Alimento {		//java joptionpane
 
-	private String nombre, alto="A", medio="M", bajo="B";
-	private int lipidos, hidratos, proteinas;
+	private String nombre;
+	private double lipidos, hidratos, proteinas;
 	private boolean origenAnimal;
-	private String vitaminas, minerales;
+	private char vitaminas, minerales;
+	char alto='A', medio='M', bajo='B';
 	
-	Alimento(String nom, int lipi, int hidra, int prote){
+	Alimento(String nom, double lipi, double hidra, double prote){
 		this.nombre = nom;
 		this.lipidos = lipi;
 		this.hidratos = hidra;
 		this.proteinas = prote;
 	}
 	
-	public void setVitaminas(String vita) {
+	public void setVitaminas(char vita) {
 		this.vitaminas = vita;
 	}
 	
 	public String getVitamina() {
 		if(vitaminas == alto) {
-			return "Contenido de vitaminas Alto";
+			return "Contenido de vitaminas es Alto";
 		}else {
 			if(vitaminas == medio) {
-				return "Contenido de vitaminas Medio";
+				return "Contenido de vitaminas es Medio";
 			}else {
-				return "Contenido de vitaminas Bajo";
+				if(vitaminas == bajo) {
+					return "Contenido de vitaminas es Bajo";
+				}else {
+					return "Error";
+				}
 			}
 		}
 	}
-	
-	public void setMineral(String mine) {
+
+	public void setMineral(char mine) {
 		this.minerales = mine;
 	}
 	
 	public String getMineral() {
 		if(minerales == alto) {
-			return "Contenido de vitaminas Alto";
+			return "Contenido de mineral es Alto";
 		}else {
 			if(minerales == medio) {
-				return "Contenido de vitaminas Medio";
+				return "Contenido de mineral es Medio";
 			}else {
-				return "Contenido de vitaminas Bajo";
+				if(minerales == bajo) {
+					return "Contenido de mineral es Bajo";
+				}else {
+					return "Error";
+				}
 			}
 		}
 	}
@@ -59,8 +68,17 @@ public class Alimento {
 		}
 	}
 	
-	public String getInformacion() {
+	public String getesDietetico() {
+		if(lipidos<20 && vitaminas != bajo) {
+			return "El alimento es Dietetico";
+		}else {
+			return "El alimento no es Dietetico";
+		}
+	}
+	
+	public String getmuestraAlimento() {
 		return nombre+" tiene:"+"\n"+lipidos+"% de lipidos"+"\n"+hidratos+"% de hidratos"
-				+"\n"+proteinas+"% de proteinas"+"\n"+setOrigenAnimal()+"\n"+getVitamina()+"  "+getMineral();
+				+"\n"+proteinas+"% de proteinas"+"\n"+setOrigenAnimal()+"\n"+getVitamina()+"  "+getMineral()+"\n"
+				+getesDietetico();
 	}
 }
