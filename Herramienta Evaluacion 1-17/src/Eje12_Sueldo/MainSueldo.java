@@ -12,7 +12,7 @@ public class MainSueldo {
 		String nom = empleado.nextLine();
 		System.out.println("Introduce horas trabajadas:");
 		int hora = empleado.nextInt();
-		System.out.println("Introduce cual es la tarifa por horas trabajadas:");
+		System.out.println("Introduce cual es la tarifa por horas trabajadas:");	
 		double cobra = empleado.nextDouble();
 		
 		Sueldo emple = new Sueldo(nom, hora, cobra);

@@ -3,7 +3,8 @@ package Eje1_DVDCine;
 public class DVDCine {
 	
 	private boolean thriller, resumen;
-	private String duracion, pelicula;
+	private String pelicula, resumen2, genero;
+	private int duracion;
 	
 	public void setDato(String pelicula){
 		this.pelicula = pelicula;
@@ -12,9 +13,18 @@ public class DVDCine {
 		return pelicula;
 	}
 	
+	public void setGenero(String gene) {
+		this.genero = gene;
+	}
+	
+	public String getGenero() {
+		return genero;
+	}
+	
 	public void setesThriller(boolean thriller) {
 		this.thriller = thriller;
 	}
+	
 	public String getesThriller() {
 		if(thriller == true) {
 			return "si es thriller";
@@ -26,6 +36,15 @@ public class DVDCine {
 	public void settieneResumen(boolean resumen) {
 		this.resumen = resumen;
 	}
+	
+	/*public void setResumenes(String resu) {
+		this.resumen2 = resu;
+	}
+	
+	public String getResumenes() {
+		return resumen2;
+	}*/
+	
 	public String gettieneResumen() {
 		if(resumen == true) {
 			return "si tiene resumen";
@@ -34,7 +53,7 @@ public class DVDCine {
 		}
 	}
 	
-	public void setmuestraDuracion(String duracion) {
+	public void setmuestraDuracion(int duracion) {
 		this.duracion = duracion;
 	}
 	public String getmuestraDuracion() {
@@ -42,8 +61,8 @@ public class DVDCine {
 	}
 
 	public String muestraDVDCine() {
-		return "La pelicula es: "+pelicula+" Su genero "+getesThriller()+" "
-		+gettieneResumen()+" y su duracion es de "+getmuestraDuracion();
-	}
+		return "La pelicula es: "+pelicula+" Su genero es "+getGenero()+" "+getesThriller()+"\n"
+		+gettieneResumen()+". Y su duracion es de "+getmuestraDuracion();
+	} 
 
 }
