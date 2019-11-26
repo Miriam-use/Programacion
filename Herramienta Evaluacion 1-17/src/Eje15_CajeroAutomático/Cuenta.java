@@ -1,5 +1,12 @@
 package Eje15_CajeroAutomático;
-
+/**
+ * <h2>Clase Cuenta, se utiliza para crear y leer cuenta bancaria</h2>
+ * 
+ * Buscar informacion de javadoc en <a href="http://google.com">GOOGLE</a>
+ * @version 1-2019
+ * @author Miriam
+ * @since 25-11-2019
+ */
 public class Cuenta {
 	
 	private float saldo=0;
