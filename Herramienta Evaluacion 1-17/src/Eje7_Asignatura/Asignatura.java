@@ -1,10 +1,10 @@
 package Eje7_Asignatura;
 
 public class Asignatura {
-
+	
 	private String asig;
 	private int not;
-	
+
 	public Asignatura(String asig, int not){
 		this.asig = asig;
 		this.not = not;

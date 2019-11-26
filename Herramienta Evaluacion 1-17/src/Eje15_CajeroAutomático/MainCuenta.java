@@ -30,7 +30,7 @@ public class MainCuenta {
 			
 			switch(opcion) {
 			case 1:
-				System.out.println("Cuenta creada. Saldo 0 euros");
+				System.out.println("Cuenta creada. Saldo "+cuen.getSaldo()+" euros");
 				break;
 			case 2:
 				System.out.println("Ingrese cantida inicial:");
