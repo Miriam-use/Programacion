@@ -5,5 +5,12 @@ public class Marciano {
 	private boolean vivo=false;
 	private String nombre;
 	
-	public 
+	Marciano(String nombre){
+		this.nombre = nombre;
+		this.vivo = true;
+	}
+	public void setnumMarcianos() {
+		
+	}
+	
 }
