@@ -5,9 +5,10 @@ public class Marciano {
 	private boolean vivo=false;
 	private String nombre;
 	private String numMarcianos;
+	private char estado;
+	char vivos='s', muertos='n';
 	
-	
-	public void setAlien(String nombre) {
+	Marciano(String nombre) {
 		this.nombre = nombre;
 		this.vivo = true;
 	}
@@ -17,8 +18,12 @@ public class Marciano {
 		return "Hola, he nacido y soy el marciano "+nombre;
 	}
 	
+	public void setMuere(char v) {
+		this.estado = v;
+		this.vivo = false;
+	}
+	
 	public String getMuere() {
-		this.vivo=false;
 		return "El marciano "+nombre+" ha muerto";
 	}
 	
@@ -27,6 +32,14 @@ public class Marciano {
 			return "El marciano ya está muerto";
 		}else {
 			return "El marciano está vivo";
+		}
+	}
+		
+	public String getcuentaMarcianos() {
+		if(vivo==true) {
+			return "Marciano vivos";
+		}else {
+			return "Ninguan marciano vivo";
 		}
 	}
 	

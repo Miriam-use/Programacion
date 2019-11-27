@@ -43,7 +43,9 @@ public class Empleado {
 	}
 	
 	public String getRetencion() {
-		return "";
+		if(casado==true) {
+			return "Al estar casado y tener "+hijo+"hijos. Su Rentencion es de "+(sueldoBase-(irpf-1-hijo));
+		}return "Al no estar casado y tener "+hijo+"hijos. Su Rentencion es de \"+(sueldoBase-(irpf-1-hijo))";
 	}
 	
 	public String getprintln() {
@@ -51,6 +53,6 @@ public class Empleado {
 	}
 	
 	public String getprintAll() {
-		return "Su sueldo base es de "+sueldoBase+"\n"+getPagoHoraExtra()+"\n"+"Al "+getCasado();
+		return "Su sueldo base es de "+sueldoBase+"\n"+getPagoHoraExtra()+"\n"+getRetencion();
 	}
 }
