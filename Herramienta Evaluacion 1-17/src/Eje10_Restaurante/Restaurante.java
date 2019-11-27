@@ -22,11 +22,15 @@ public class Restaurante {
 		return papa+" kg";
 	}
 	
-	public String getComensales() {	//por cada tres personas se utiliza un kilo de papas y medio de chocos.
+	public String getComensales() {			//por cada tres personas se utiliza un kilo de papas y medio de chocos.
+		if(tapaPapa>3 && tapaChoco>6) {
 		if(tapaPapa < tapaChoco) {
-			return "Hay papas con choco para "+tapaPapa+" clientes";
+				return "Hay papas con choco para "+tapaPapa+" clientes";
+			}else {
+				return "Hay papas con choco para "+tapaChoco+" clientes";
+			}
 		}else {
-			return "Hay papas con choco para "+tapaChoco+" clientes";
+			return "No hay sufisiente ingredientes";
 		}
 	}
 	

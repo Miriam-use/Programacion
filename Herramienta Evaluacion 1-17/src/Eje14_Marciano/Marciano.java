@@ -4,17 +4,17 @@ public class Marciano {
 
 	private boolean vivo=false;
 	private String nombre;
-	private String[] numMarcianos;
-	private int i;
+	private String numMarcianos;
 	
-	Marciano(String nombre){
+	
+	public void setAlien(String nombre) {
 		this.nombre = nombre;
 		this.vivo = true;
 	}
 	
 	
 	public String getNace() {
-		return "Hola, he nacido y soy el marciano "+numMarcianos[i]+" "+nombre;
+		return "Hola, he nacido y soy el marciano "+nombre;
 	}
 	
 	public String getMuere() {
