@@ -1,5 +1,13 @@
 package Eje9_Persona;
 
+import Eje6_Persona.Persona;
+
+/**
+ * <h2>la subclase Docente de la clase Persona que tiene los
+ * atributos: Código, categoría, Estudios de Postgrado, horas de clase y pago por hora</h2>
+ * @author Miriam
+ * @see
+ */
 public class Docente {
 
 	private int codigo, hora;

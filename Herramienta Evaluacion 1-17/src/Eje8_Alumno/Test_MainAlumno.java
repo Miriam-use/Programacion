@@ -1,5 +1,9 @@
 package Eje8_Alumno;
-
+/**
+ * <h2>Implementar la clase Alumno que incluya la Asignatura a la que el alumno ha asistido.</h2>
+ * @author Miriam
+ * @see Asignatura
+ */
 import Eje7_Asignatura.Asignatura;
 
 public class Test_MainAlumno {

@@ -1,5 +1,10 @@
 package Eje6_Persona;
-
+/**
+ * <h2>Plantear una segunda clase Empleado que herede de la clase Persona. Añadir
+ * un atributo sueldo y los métodos de cargar el sueldo e imprimir su sueldo.</h2>
+ * @author Miriam
+ * @see Persona
+ */
 public class Empleado extends Persona {
 
 	private double sueldo;

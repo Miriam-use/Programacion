@@ -1,9 +1,14 @@
 package Eje11_Triangulo;
-
+/**
+ * <h2>Se quiere definir una clase Triangulo que represente al polígono Triangulo.</h2>
+ * @author Miriam
+ * 
+ */
 public class Triangulo {
 
 	private double long_lado1, long_lado2, long_lado3, a, b;
 	private int compara, triangulos;
+	private double Triangulo_a, Triangulo_b;
 	
 	/**Constructor sobrecargado que inicializa los atributos.*/
 	
@@ -17,8 +22,13 @@ public class Triangulo {
 		return "Triangulo de lados "+long_lado1+" "+long_lado2+" "+long_lado3;
 	}
 	
+	public void compareTo_Triangulos(double a, double b) {
+		this.Triangulo_a = a;
+		this.Triangulo_b = b;
+	}
+	
 	public double compareTo_Triangulos() {
-		return a=long_lado1+long_lado2+long_lado3;
+		return a=long_lado1*long_lado1+long_lado2*long_lado2;
 	}
 	
 	

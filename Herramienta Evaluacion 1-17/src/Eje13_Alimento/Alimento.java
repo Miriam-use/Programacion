@@ -1,5 +1,9 @@
 package Eje13_Alimento;
-
+/**
+ * <h2>Crear una clase de nombre Alimento cuyos objetos representen alimentos.</h2>
+ * @author Miriam
+ * 
+ */
 public class Alimento {		//java joptionpane
 
 	private String nombre;
@@ -8,6 +12,13 @@ public class Alimento {		//java joptionpane
 	private char vitaminas, minerales;
 	char alto='A', medio='M', bajo='B';
 	
+	/**
+	 * Contenido en lípidos, hidratos y proteinas expresado en tanto por ciento.
+	 * @param nom
+	 * @param lipi
+	 * @param hidra
+	 * @param prote
+	 */
 	Alimento(String nom, double lipi, double hidra, double prote){
 		this.nombre = nom;
 		this.lipidos = lipi;
@@ -19,6 +30,10 @@ public class Alimento {		//java joptionpane
 		this.vitaminas = vita;
 	}
 	
+	/**
+	 * Contenido en vitaminas expresado en los códigos A alto, M medio y B bajo.
+	 * @return
+	 */
 	public String getVitamina() {
 		if(vitaminas == alto) {
 			return "Contenido de vitaminas es Alto";
@@ -39,6 +54,10 @@ public class Alimento {		//java joptionpane
 		this.minerales = mine;
 	}
 	
+	/**
+	 * Contenido en minerales expresado en los códigos A alto, M medio y B bajo.
+	 * @return
+	 */
 	public String getMineral() {
 		if(minerales == alto) {
 			return "Contenido de mineral es Alto";
@@ -60,6 +79,10 @@ public class Alimento {		//java joptionpane
 		this.origenAnimal = animal;
 	}
 	
+	/**
+	 * Si es o no de origen animal.
+	 * @return
+	 */
 	public String setOrigenAnimal() {
 		if(origenAnimal == true) {
 			return "Si es de origen animal";
@@ -68,6 +91,10 @@ public class Alimento {		//java joptionpane
 		}
 	}
 	
+	/**
+	 * retorna cierto si el alimento contiene menos del 20% de lípidos y el contenido en vitaminas no es bajo.
+	 * @return
+	 */
 	public String getesDietetico() {
 		if(lipidos<20 && vitaminas != bajo) {
 			return "El alimento es Dietetico";
@@ -76,9 +103,13 @@ public class Alimento {		//java joptionpane
 		}
 	}
 	
+	/**
+	 * retorna una descripción del alimento.
+	 * @return
+	 */
 	public String getmuestraAlimento() {
 		return nombre+" tiene:"+"\n"+lipidos+"% de lipidos"+"\n"+hidratos+"% de hidratos"
-				+"\n"+proteinas+"% de proteinas"+"\n"+setOrigenAnimal()+"\n"+getVitamina()+"  "+getMineral()+"\n"
+				+"\n"+proteinas+"% de proteinas"+"\n"+setOrigenAnimal()+"\n"+getVitamina()+".  "+getMineral()+"\n"
 				+getesDietetico();
 	}
 }

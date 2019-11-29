@@ -1,7 +1,12 @@
 package Eje9_Persona;
 
-import java.util.Scanner;
+import Eje6_Persona.Persona;
 
+/**
+ * <h2>Estudiante de la clase Persona que tendrá los atributos: Código, Categoría, Pago de pensiones y colegio de procedencia.</h2>
+ * @author Miriam
+ * @see
+ */
 public class Estudiante {
 
 	private int cod;

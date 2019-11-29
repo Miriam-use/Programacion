@@ -1,5 +1,10 @@
 package Eje17_Ordenador;
-
+/**
+ * <h2>La superclase Ordenador contiene los siguientes atributos: cantidad de
+ * memoria RAM, capacidad del disco duro, modelo de procesador, modelo de tarjeta gráfica y precio.</h2>
+ * @author Miriam
+ * 
+ */
 public class Ordenador {
 
 	public double ram, discoDuro, precio;

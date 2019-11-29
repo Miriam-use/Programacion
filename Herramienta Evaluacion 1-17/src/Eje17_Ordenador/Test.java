@@ -1,7 +1,12 @@
 package Eje17_Ordenador;
 
 import java.util.Scanner;
-
+/**
+ * <h2>La clase Test contendrá los métodos estáticos necesarios para controlar
+ * que el usuario introduzca los datos correctos.</h2>
+ * @author Miriam
+ *
+ */
 public class Test {
 
 	public static void main(String[] args) {

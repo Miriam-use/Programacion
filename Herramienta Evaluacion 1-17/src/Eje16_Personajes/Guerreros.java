@@ -1,5 +1,9 @@
 package Eje16_Personajes;
-
+/**
+ * <h2>tienen además un arma</h2>
+ * @author Miriam
+ * @see
+ */
 public class Guerreros extends Personajes{
 
 	private String arma;

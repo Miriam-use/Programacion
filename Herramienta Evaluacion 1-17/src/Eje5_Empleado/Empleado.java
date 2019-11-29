@@ -1,5 +1,11 @@
 package Eje5_Empleado;
-
+/**
+ * <h2>Crea una clase Empleado que modele la información que una empresa mantiene sobre cada empleado</h2>
+ * 
+ * Buscar informacion de javadoc en <a href="http://google.com">GOOGLE</a>
+ * @version 1-2019
+ * @author Miriam
+ */
 public class Empleado {
 
 	private int nif = 123456789;
@@ -7,6 +13,11 @@ public class Empleado {
 	private boolean casado;
 	private int horaExtra, hijo;
 	
+	/**
+	 * Cálculo y devolución del complemento correspondiente a las horas extra
+	 * realizadas.
+	 * @param horaExtra
+	 */
 	public void setPagoHoraExtra(int horaExtra) {
 		this.horaExtra = horaExtra;
 	}
@@ -42,6 +53,13 @@ public class Empleado {
 		return (sueldoBase+(horaExtra *pagoExtra))*(sueldoBase/irpf);
 	}
 	
+	/**
+	 * Cálculo y devolución de las retenciones (IRPF) a partir del tipo, teniendo
+	 * en cuenta que el porcentaje de retención que hay que aplicar es el tipo
+	 * menos 2 puntos si el empleado está casado y menos 1 punto por cada
+	 * hijo que tenga; el porcentaje se aplica sobre todo el sueldo bruto.
+	 * @return
+	 */
 	public String getRetencion() {
 		if(casado==true) {
 			return "Al estar casado y tener "+hijo+"hijos. Su Rentencion es de "+(sueldoBase-(irpf-1-hijo));

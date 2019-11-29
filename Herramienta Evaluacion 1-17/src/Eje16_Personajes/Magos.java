@@ -1,5 +1,9 @@
 package Eje16_Personajes;
-
+/**
+ * <h2>tienen además un poder</h2>
+ * @author Miriam
+ * @see
+ */
 public class Magos extends Personajes{
 
 	private String poder;

@@ -1,5 +1,9 @@
 package Eje17_Ordenador;
-
+/**
+ * <h2>La subclase Portátil contiene los siguientes atributos: marca, tamaño de pantalla y peso.</h2>
+ * @author Miriam
+ * @see
+ */
 public class Servidor extends Ordenador	{
 	
 	private double monitor;

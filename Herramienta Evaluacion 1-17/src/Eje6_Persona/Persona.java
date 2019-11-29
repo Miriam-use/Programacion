@@ -1,5 +1,11 @@
 package Eje6_Persona;
-
+/**
+ * <h2>Confeccionar una clase Persona que tenga como atributos el nombre y la edad.</h2>
+ * 
+ * Buscar informacion de javadoc en <a href="http://google.com">GOOGLE</a>
+ * @version 1-2019
+ * @author Miriam
+ */
 public class Persona {
 
 	private String nombre;

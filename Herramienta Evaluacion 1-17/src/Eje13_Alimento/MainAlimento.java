@@ -1,7 +1,11 @@
 package Eje13_Alimento;
 
 import java.util.Scanner;
-
+/**
+ * <h2>Crear una clase de nombre Alimento cuyos objetos representen alimentos.</h2>
+ * @author Miriam
+ * 
+ */
 public class MainAlimento {
 
 	public static void main(String[] args) {

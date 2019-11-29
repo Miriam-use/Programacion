@@ -1,5 +1,11 @@
 package Eje5_Empleado;
-
+/**
+ * <h2>Crea una clase Empleado que modele la información que una empresa mantiene sobre cada empleado</h2>
+ * 
+ * Buscar informacion de javadoc en <a href="http://google.com">GOOGLE</a>
+ * @version 1-2019
+ * @author Miriam
+ */
 public class MainEmpleado {
 
 	public static void main(String[] args) {

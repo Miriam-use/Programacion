@@ -1,5 +1,11 @@
 package Eje9_Persona;
-
+/**
+ * <h2>Construya una clase Persona que tiene los siguientes atributos,
+ * apellidos, nombres, sexo y DNI, incluya sus constructores y un método que
+ * permita visualizar la información de los atributos.</h2>
+ * @author Miriam
+ * 
+ */
 public class Persona {
 
 	private String apellido, nombre, sexo;

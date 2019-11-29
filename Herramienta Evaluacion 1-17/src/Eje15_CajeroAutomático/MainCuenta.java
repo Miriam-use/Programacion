@@ -1,7 +1,14 @@
 package Eje15_CajeroAutomático;
 
 import java.util.Scanner;
-
+/**
+ * <h2>Crea un menu que pide que de a una opcion del menu</h2>
+ * 
+ * Buscar informacion de javadoc en <a href="http://google.com">GOOGLE</a>
+ * @version 1-2019
+ * @author Miriam
+ * @since 26-11-2019
+ */		
 public class MainCuenta {
 
 	public static void main(String[] args) {
@@ -9,14 +16,7 @@ public class MainCuenta {
 		Cuenta cuen = new Cuenta();
 		Scanner dat = new Scanner(System.in);
 		boolean salir = false;
-		/**
-		 * <h2>Crea un menu que pide que de a una opcion del menu</h2>
-		 * 
-		 * Buscar informacion de javadoc en <a href="http://google.com">GOOGLE</a>
-		 * @version 1-2019
-		 * @author Miriam
-		 * @since 26-11-2019
-		 */		
+		
 		while(!salir) {
 			System.out.println("1.-Crear cuenta vacía");
 			System.out.println("2.-Crear cuenta con saldo inicial");

@@ -1,5 +1,13 @@
 package Eje3_Cuenta;
 
+/**
+ * <h2>Clase muestre los datos de una cuenta bancaria</h2>
+ * 
+ * Buscar informacion de javadoc en <a href="http://google.com">GOOGLE</a>
+ * @version 1-2019
+ * @author Miriam
+ */
+
 public class MainCuenta {
 
 	public static void main(String[] args) {

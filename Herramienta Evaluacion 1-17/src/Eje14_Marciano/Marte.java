@@ -1,7 +1,11 @@
 package Eje14_Marciano;
 
 import java.util.Scanner;
-
+/**
+ * <h2>Clase que nos permite crear y matar marcianos</h2>
+ * @author Miriam
+ * 
+ */
 public class Marte	{
 
 	public static void main(String[] args) {
@@ -37,8 +41,12 @@ public class Marte	{
 		System.out.println(alien.getNacer());
 		m.nextLine();
 		
-		System.out.println(et[1]);
+		System.out.println("El marciano "+et[1]);
 		alien.setestaVivo(et[1]);
+		
+		System.out.println("El marciano "+et[0]);
+		alien.setestaVivo(et[0]);
+		
 
 	}
 

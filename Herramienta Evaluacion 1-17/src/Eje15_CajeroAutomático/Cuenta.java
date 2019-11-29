@@ -5,7 +5,6 @@ package Eje15_CajeroAutomático;
  * Buscar informacion de javadoc en <a href="http://google.com">GOOGLE</a>
  * @version 1-2019
  * @author Miriam
- * @since 25-11-2019
  */
 public class Cuenta {
 	

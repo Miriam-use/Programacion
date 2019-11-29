@@ -1,5 +1,9 @@
 package Eje17_Ordenador;
-
+/**
+ * <h2>La subclase Servidor contiene los siguientes atributos: tamaño del monitor, modelo de teclado y modelo de ratón.</h2>
+ * @author Miriam
+ * @see
+ */
 public class Portatil extends Ordenador {
 
 	private String marca;

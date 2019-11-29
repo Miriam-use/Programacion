@@ -1,7 +1,11 @@
 package Eje12_Sueldo;
 
 import java.util.Scanner;
-
+/**
+ * <h2>clase que determine el sueldo bruto para cada uno de los tres empleados de una empresa..</h2>
+ * @author Miriam
+ * 
+ */
 public class MainSueldo {
 
 	public static void main(String[] args) {
@@ -10,8 +14,10 @@ public class MainSueldo {
 		
 		System.out.println("Introduce Nombre:");
 		String nom = empleado.nextLine();
+		
 		System.out.println("Introduce horas trabajadas:");
 		int hora = empleado.nextInt();
+		
 		System.out.println("Introduce cual es la tarifa por horas trabajadas:");	
 		double cobra = empleado.nextDouble();
 		

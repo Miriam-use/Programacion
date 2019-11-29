@@ -1,5 +1,13 @@
 package Eje2_Vehiculo;
 
+/**
+ * <h2>Clase que guarde y muestre las caracterestica de un vehiculo</h2>
+ * 
+ * Buscar informacion de javadoc en <a href="http://google.com">GOOGLE</a>
+ * @version 1-2019
+ * @author Miriam
+ */
+
 public class MainVehiculo {
 
 	public static void main(String[] args) {

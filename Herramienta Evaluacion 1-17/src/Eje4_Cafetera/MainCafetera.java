@@ -1,5 +1,11 @@
 package Eje4_Cafetera;
-
+/**
+ * <h2>Clase que simule una cafetera</h2>
+ * 
+ * Buscar informacion de javadoc en <a href="http://google.com">GOOGLE</a>
+ * @version 1-2019
+ * @author Miriam
+ */
 public class MainCafetera {
 
 	public static void main(String[] args) {

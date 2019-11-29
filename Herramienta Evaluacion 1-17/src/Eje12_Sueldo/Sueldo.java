@@ -1,5 +1,9 @@
 package Eje12_Sueldo;
-
+/**
+ * <h2>clase que determine el sueldo bruto para cada uno de los tres empleados de una empresa.</h2>
+ * @author Miriam
+ * 
+ */
 public class Sueldo {
 
 	private String nombre;
