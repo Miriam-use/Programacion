@@ -2,46 +2,51 @@ package Eje14_Marciano;
 
 public class Marciano {
 
-	private boolean vivo=false;
-	private String nombre;
-	private String numMarcianos;
-	private char estado;
-	char vivos='s', muertos='n';
+	protected boolean vivo = false, opcion;   
+    private String soy;
+	private String vivomuerto;
+	private String muerto;
+    private static int total = 0;
+    
+    public Marciano(String soy) {
+    	vivo=true;  
+        this.soy = soy; 
+    }
+    
+    public void setNacer(String soy) {
+    	vivo=true;  
+        this.soy = soy;
+    }
+    
+    public String getNacer() {
+    	return "Hola, he nacido y soy el marciano "+soy;
+    }
 	
-	Marciano(String nombre) {
-		this.nombre = nombre;
-		this.vivo = true;
-	}
+	public boolean isVivo(){   
+        return vivo;   
+    }   
 	
-	
-	public String getNace() {
-		return "Hola, he nacido y soy el marciano "+nombre;
-	}
-	
-	public void setMuere(char v) {
-		this.estado = v;
-		this.vivo = false;
-	}
-	
-	public String getMuere() {
-		return "El marciano "+nombre+" ha muerto";
-	}
-	
-	public String getestaVivo() {
-		if(vivo==false) {
-			return "El marciano ya está muerto";
+	public void setMuerto(boolean op) {
+		this.opcion=op;
+		if(opcion==true) {
+			System.out.println("El marciano ha muerto.");
 		}else {
-			return "El marciano está vivo";
-		}
-	}
-		
-	public String getcuentaMarcianos() {
-		if(vivo==true) {
-			return "Marciano vivos";
-		}else {
-			return "Ninguan marciano vivo";
+			System.out.println("El marciano no ha muerto.");
 		}
 	}
 	
+	public void setMuer(String muerto) {
+		vivo=false;
+		this.muerto=muerto;
+	}
+	
+	public void setestaVivo(String vivomuerto){
+		this.vivomuerto = vivomuerto;
+		if(vivomuerto==muerto) {
+			System.out.println("El marciano ya esta muerto.");
+		}else {
+			System.out.println("El marciano no esta muerto.");
+		}
+	}
 	
 }
