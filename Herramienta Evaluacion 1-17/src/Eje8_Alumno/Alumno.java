@@ -4,6 +4,8 @@ package Eje8_Alumno;
  * @author Miriam
  *
  */
+import Eje7_Asignatura.Asignatura;
+
 public class Alumno {
 
 	private String nombre;
@@ -18,7 +20,7 @@ public class Alumno {
 		this.nombre = nom;
 		this.edad = edad;
 	}
-	
+
 	/**
 	 * Métodos para modificar el nombre (setNombre) y para consultarlo (getNombre).
 	 * @param nom

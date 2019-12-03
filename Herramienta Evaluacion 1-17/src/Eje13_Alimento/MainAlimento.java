@@ -16,7 +16,7 @@ public class MainAlimento {
 		String nombre = alimento.nextLine();
 		System.out.println("Introduce porcentaje de Lipidos:");
 		double lipido = alimento.nextDouble();
-		System.out.println("Introduce porcentaje Hodratos de Carbono:");
+		System.out.println("Introduce porcentaje Hidratos de Carbono:");
 		double hidrato = alimento.nextDouble();
 		System.out.println("Introduce porcentaje de Proteinas:");
 		double proteinas = alimento.nextDouble();
