@@ -16,7 +16,7 @@ public class Test {
 		}
 		
 		if(!g.aceptarCoche(c1, "Sin gasolina")){
-			System.out.println("Ya esta atendiendo otro coche, no se puede coger este");
+			System.out.println("Ya esta atendiendo otro coche, no se puede coger mas coches");
 		}
 		
 		g.devolverCoche();
