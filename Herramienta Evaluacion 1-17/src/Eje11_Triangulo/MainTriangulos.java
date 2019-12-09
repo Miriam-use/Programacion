@@ -33,8 +33,6 @@ public class MainTriangulos {
 		System.out.println("1º "+triangu1.getTriangulo());
 		System.out.println("2º "+triangu2.getTriangulo());
 		
-		
-		
 		if(triangu1.compareTo_Triangulos()==triangu2.compareTo_Triangulos()) {
 			System.out.println("Los triangulos 1 y 2 son iguales");
 		}else {

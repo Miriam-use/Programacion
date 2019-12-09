@@ -6,7 +6,7 @@ public class Prueba {
 
 		
 		int a=5, b=9;
-		System.out.println(a/5.0); //hola
+		System.out.println(a/5.0); 
 		System.out.println((float)a/b); 
 		
 		int num=1;	//contador del 1 al 10

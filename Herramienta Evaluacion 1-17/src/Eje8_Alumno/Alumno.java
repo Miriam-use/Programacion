@@ -46,7 +46,7 @@ public class Alumno {
 	}
 	
 	public String getDatos() {
-		return nombre+"\n"+edad+" aÃ±os";
+		return nombre+"\n"+edad+" años";
 	}
 	
 }

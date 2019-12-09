@@ -28,7 +28,7 @@ public class Triangulo {
 	}
 	
 	public double compareTo_Triangulos() {
-		return a=long_lado1*long_lado1+long_lado2*long_lado2;
+		return a=long_lado1+long_lado2+long_lado3;
 	}
 	
 	
