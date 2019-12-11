@@ -1,0 +1,15 @@
+1.Dada la siguiente definición:
+¿Cuál debería ser el contenido del constructor?. Justifica tu respuesta.
+	-Puede ser tanto la a como la c. Ya que no importa que tenga el mismo nombre 
+	del parametro que el del atributo.
+
+2.Justifica cuál sería el resultado de la ejecución del siguiente código:
+	-Resultado: 
+			0
+			0
+	Dado que en public int getValor() le da un valor de 0.
+
+3.Dadas las siguientes clases:
+Explicar cuál será el resultado por pantalla de la siguiente secuencia de invocaciones:
+	-El resultado sera el tipo que sea (mamifero, acuatico) y en el primero seria el habita mientras que
+	en el segundo aparecera aparte del habita si es cetaceo.
