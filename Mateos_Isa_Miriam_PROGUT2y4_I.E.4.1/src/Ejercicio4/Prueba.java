@@ -6,14 +6,9 @@ public class Prueba {
 
 		Punto p1 = new Punto();
 		Punto p2 = new Punto(40, 10);
-		System.out.println(p1.calcularDistanciaDesde());
-		System.out.println(p2.calcularDistanciaDesde());
 		
-		Circulo c1 = new Circulo(p1, p1, 4);	
-		System.out.println(c1.calcularArea());
+		double distancia = p1.calcularDistanciaDesde(p2);
+		System.out.println("La distancia de p1 a p2 es: "+distancia);
 		
-		Triangulo t1 = new Triangulo();
-		System.out.println(t1.calcularPerimetro());
 	}
-
 }

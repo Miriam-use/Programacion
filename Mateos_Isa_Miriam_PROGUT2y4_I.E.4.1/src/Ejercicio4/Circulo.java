@@ -2,18 +2,16 @@ package Ejercicio4;
 
 public class Circulo {
 
-	private Punto punto1, punto2;
+	private Punto punto;
 	private double raiz;
 	
-	public Circulo(Punto p1, Punto p2, double r) {
-		punto1=p1;
-		punto2=p2;
+	public Circulo(Punto p, double r) {
+		punto=p;
 		raiz=r;
 	}
 	
 	public Circulo() {
-		punto1=new Punto();
-		punto2=new Punto(8, 5);
+		punto=new Punto(8, 5);
 		raiz=4;
 	}
 	
@@ -21,17 +19,13 @@ public class Circulo {
 		return raiz;
 	}
 	
-	public Punto getPunto1() {
-		return punto1;
-	}
-	
-	public Punto getPunto2() {
-		return punto2;
+	public Punto getPunto() {
+		return punto;
 	}
 	
 	public double calcularDistanciaDesde() {
 		Punto d = null;
-		return d.calcularDistanciaDesde();
+		return d.calcularDistanciaDesde(getPunto());
 	}
 	
 	public double calcularArea() {
