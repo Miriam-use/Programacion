@@ -1,4 +1,4 @@
-package Ejercicio3;
+package Ejercicios1_40;
 
 import java.util.Scanner;
 /**
@@ -6,7 +6,7 @@ import java.util.Scanner;
  * @author Miriam
  *
  */
-public class Matriz {
+public class Ejercicio3 {
 
 	public static void main(String[] args) {
 		

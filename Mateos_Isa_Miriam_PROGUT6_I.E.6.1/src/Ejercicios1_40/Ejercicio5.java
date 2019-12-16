@@ -1,6 +1,6 @@
-package Ejercicio5;
+package Ejercicios1_40;
 
-public class VectoresMayor {
+public class Ejercicio5 {
 
 	public static void main(String[] args) {
 
@@ -13,13 +13,14 @@ public class VectoresMayor {
 			}
 		
 		int mayor = vector[0];
+		int p=0;
 		for(int i=0; i<vector.length; i++) {
 			if(vector[i]>mayor) {
 				mayor = vector[i];
-				System.out.println("El mayor en la posicion "+i+" es: "+mayor);
+				p = i;
 			}
 		}
-		
+		System.out.println("El mayor en la posicion "+p+" es: "+mayor);
 	}
 
 }

@@ -1,4 +1,4 @@
-package Ejercicio2;
+package Ejercicios1_40;
 
 import java.util.Scanner;
 
@@ -7,7 +7,7 @@ import java.util.Scanner;
  * @author Miriam
  *
  */
-public class Array {
+public class Ejercicio2 {
 
 	public static void main(String[] args) {
 		

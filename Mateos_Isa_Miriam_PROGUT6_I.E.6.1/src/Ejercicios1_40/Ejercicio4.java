@@ -1,4 +1,4 @@
-package Ejercicio4;
+package Ejercicios1_40;
 
 import java.util.Scanner;
 /**
@@ -6,7 +6,7 @@ import java.util.Scanner;
  * @author Miriam
  *
  */
-public class Multiplo3 {
+public class Ejercicio4 {
 
 	public static void main(String[] args) {
 
