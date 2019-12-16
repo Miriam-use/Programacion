@@ -14,10 +14,16 @@ public class Ejercicio7 {
 		
 		int maximo = array.length;
 		
+		try {
+			
 		for(int i=0; i<array.length; i++) {
 		System.out.println("Introduce el "+i+" numeros:");
 		int n=numero.nextInt();
 		array[i]=n;
+		
+		}
+		}catch(Exception e) {
+			System.out.println("Error");
 		}
 		
 		for(int i=0; i<array.length; i++) {
