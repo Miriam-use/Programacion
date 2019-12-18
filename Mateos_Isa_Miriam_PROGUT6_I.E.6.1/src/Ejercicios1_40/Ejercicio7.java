@@ -17,7 +17,9 @@ public class Ejercicio7 {
 		try {
 			
 		for(int i=0; i<array.length; i++) {
-		System.out.println("Introduce el "+i+" numeros:");
+			int j=0;
+			j++;
+		System.out.println("Introduce el "+j+" numeros:");
 		int n=numero.nextInt();
 		array[i]=n;
 		
