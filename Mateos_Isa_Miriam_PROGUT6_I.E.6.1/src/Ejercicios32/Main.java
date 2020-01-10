@@ -1,50 +1,23 @@
 package Ejercicios32;
 
+import java.util.ArrayList;
+/**
+ * Creamos un Binfo con 1 carton.
+ * @author Miriam
+ *
+ */
 public class Main {
 
 public static void main(String[] args) {
-        
-        int espacios [][]= new int [3][9];
-        int compColumna []= new int [9];
-        int contL =0;
-        int htotales;
-        
-        do{
-            //reset
-            htotales=0;
-            contL=0;
-            for(int f= 0;f<9;f++){
-                 compColumna[f]=0;
-            }
-            
-            for(int col= 0;col<3;col++){ 
-                for(int f= 0;f<9;f++){
-                    espacios[col][f]=1;
-                }
-            }
-            
-            for(int col= 0;col<3;col++){ 
-                for(int f= 0;f<9;f++){
-                    int aux = (int) (Math.random()*10)+1;
-
-                    if ( aux%2==0 && contL<4 && compColumna[f]<2){
-                        espacios[col][f]=0;
-                        contL++;
-                        compColumna[f]++;
-                        htotales++;
-                    }
-                }
-                contL=0;
-            }
-        }
-        while(htotales!=12);
-        
-        //Mostrar
-        for(int col= 0;col<3;col++){ 
-            for(int f= 0;f<9;f++){
-                System.out.print(espacios[col][f]);
-            }
-            System.out.println("");
+ /**
+  * La clase ArrayList en Java, es una clase que permite almacenar datos en memoria de forma similar a los Arrays   
+  */
+		ArrayList<Carton>bingoList = new ArrayList<Carton>();
+	
+        for(int i=0; i<1; i++) {
+        	Carton bingo=new Carton();
+        	bingoList.add(bingo);
+        	bingo.syso();
         }
     }
 }
