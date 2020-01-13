@@ -1,29 +1,32 @@
 package Ejercicios1_40;
 
-import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Ejercicio27 {
 
 	public static void main(String[] args) {
 
-		Scanner NIF = new Scanner(System.in);
+		String nif="77871950E";
 		
-		System.out.println("Introduce NIF o DNI:");
-		String nif=NIF.nextLine();
-		String balidar=nif;
-		String comprobar[]= {nif};
-		char contar;
-		int cont=0;
-		
-		for(int i=0; i<balidar.length(); i++) {
-			contar=Character.toLowerCase(balidar.charAt(i));
-			cont = contar;
-		}
-		if(cont!=9) {
-			System.out.println("NIF no valido");
-		}else {
-			System.out.println("NIF valido");
-		}
+	    Pattern pattern = Pattern.compile("(\\d{1,8})([TRWAGMYFPDXBNJZSQVHLCKEtrwagmyfpdxbnjzsqvhlcke])");
+	    Matcher matcher = pattern.matcher(nif);
+
+	    if (matcher.matches()) {
+	        String letra = matcher.group(2);
+	        String letras = "TRWAGMYFPDXBNJZSQVHLCKE";
+	        int index = Integer.parseInt(matcher.group(1));
+	        index = index % 23;
+	        String reference = letras.substring(index, index + 1);
+
+	        if (reference.equalsIgnoreCase(letra)) {
+	            System.out.println("DNI correcto");
+	        } else {
+	            System.out.println("DNI incorrecto");
+	        }
+	    } else {
+            System.out.println("DNI incorrecto");
+	    }
 	}
 
 }

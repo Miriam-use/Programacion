@@ -26,8 +26,8 @@ public class Ejercicio15 {
 				
 				if(array[i][j]>mayor) {
 					mayor=array[i][j];
-					J=j;
-					I=i;
+					J=j+1;
+					I=i+1;
 				}
 				
 			}
@@ -43,8 +43,8 @@ public class Ejercicio15 {
 				
 				if(array[i][j]<menor) {
 					menor=array[i][j];
-					Y=j;
-					X=i;
+					Y=j+1;
+					X=i+1;
 				}
 				
 			}
