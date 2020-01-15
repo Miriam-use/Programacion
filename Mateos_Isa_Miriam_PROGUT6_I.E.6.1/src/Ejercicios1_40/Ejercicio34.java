@@ -1,17 +1,17 @@
 package Ejercicios1_40;
 
-import java.util.Random;
-import java.util.Scanner;
-
 /**
  * 
  * @author Miriam
  *
  */
 public class Ejercicio34 {
-	
+/**
+ * 	
+ * @param args
+ */
 	public static void main(String[] args) {
-		Scanner Leer= new Scanner(System.in);
+		
 		int matriz[][]= new int[4][4], i, x;
 
 		for (i=0; i<3; i++) {
@@ -20,11 +20,13 @@ public class Ejercicio34 {
 				matriz[i][x]=numero;
 			}
 		}
-		/**
-		 * inicia la examinación de la matriz
-		 */
+/**
+* inicia la examinación de la matriz
+*/
 		for (x=0;x<3;x++){
-		// aqui encuentra el menor de la hilera
+/**
+*  aqui encuentra el menor de la hilera
+*/
 			matriz[x][3]=matriz[x][0];
 		for (i=0; i<3;i++)
 		if (matriz[x][i]>matriz[3][x])
