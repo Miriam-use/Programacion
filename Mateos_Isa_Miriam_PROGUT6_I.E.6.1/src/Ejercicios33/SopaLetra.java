@@ -10,19 +10,34 @@ import java.util.Scanner;
 public class SopaLetra {
 	
 	public String palabra;
-	
+/**
+ * Coloca las palabras en horizontal de manera normal
+ * @param sopa
+ * @param palabra
+ * @param f
+ * @param c
+ */
 	public static void pasarHorizontal(String sopa[][], String palabra, int f, int c) {
 		for(int i=0; i<palabra.length(); i++) {
 			sopa[f][c+i]=""+palabra.charAt(i);
 		}
 	}
-	
+/**
+ * 	Coloca las palabras en vertical de manera normal
+ * @param sopa
+ * @param palabra
+ * @param f
+ * @param c
+ */
 	public static void pasarVertical(String sopa[][], String palabra, int f, int c) {
 		for(int i=0; i<palabra.length(); i++) {
 			sopa[f+i][c]=""+palabra.charAt(i);
 		}
 	}
-	
+/**
+ * 	
+ * @param sopa
+ */
 	public static void VisualizarSopa(String sopa[][]) {
 		System.out.print("******************************\n");
 		System.out.print("********SOPA DE LETRAS********\n");
@@ -44,7 +59,9 @@ public class SopaLetra {
 	public static void main(String[] args) {
 
 		String sopa[][]=new String[15][15];
-
+/**
+ * Coloca aleatoria mente las palabras en la matriz
+ */
 		String letra[]= {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J",
 				"K", "L", "M","N","O","P","Q","R","S","T","U","V","W", "X","Y","Z"};
 		
