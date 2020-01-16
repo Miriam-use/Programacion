@@ -82,6 +82,8 @@ public class SopaLetra {
 			pasarVertical(sopa, palabra3, 0, 2);
 			
 			VisualizarSopa(sopa);
+			System.out.println("\nBuscas las sigientes palabras:\n");
+			System.out.println(palabra1+"\n"+palabra2+"\n"+palabra3+"\n"+palabra4);
 		
 	}
 }
