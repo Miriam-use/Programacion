@@ -1,5 +1,9 @@
 package Ejercicios1_40;
-
+/**
+ * 
+ * @author Miriam
+ *
+ */
 public class Ejercicio18 {
 
 	public static void main(String[] args) {

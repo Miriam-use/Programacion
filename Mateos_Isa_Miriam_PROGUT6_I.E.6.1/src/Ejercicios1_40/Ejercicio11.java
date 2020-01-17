@@ -1,5 +1,9 @@
 package Ejercicios1_40;
-
+/**
+ * 
+ * @author Miriam
+ *
+ */
 public class Ejercicio11 {
 
 	public static void main(String[] args) {
@@ -21,7 +25,9 @@ public class Ejercicio11 {
 			B[i]=nB;
 			System.out.println(B[i]);
 		}
-		
+/**
+ * Suma las dos matrizes y lo guarda en una 3 matriz		
+ */
 		System.out.println("ARRAY C:");
 		for(int i=0; i<B.length; i++) {
 			C[i]=A[i]+B[i];

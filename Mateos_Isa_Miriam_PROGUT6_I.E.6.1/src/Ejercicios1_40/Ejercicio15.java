@@ -1,5 +1,9 @@
 package Ejercicios1_40;
-
+/**
+ * 
+ * @author Miriam
+ *
+ */
 public class Ejercicio15 {
 
 	public static void main(String[] args) {
@@ -19,7 +23,9 @@ public class Ejercicio15 {
 		
 		int mayor=array[0][0];
 		int I=0, J=0;
-		
+/**
+ * te encuentra el mayor y te guarda las cordenadas en la que estan		
+ */
 		for(int i=0; i<array.length; i++) {
 			
 			for(int j=0; j<array[i].length; j++) {

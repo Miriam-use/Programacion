@@ -24,7 +24,7 @@ public class Ejercicio26 {
 			String eliminar2[]=invertida.split(" ");
 		}
 /**
- * Para comparar realmente las cadenas y no si son o no la misma instancia, se usa el método equals().
+ * Para comparar realmente las cadenas y no si son o no la misma instancia, se usa el método .equals()
  */
 		if(palabra.equals(invertida)) {
 			System.out.println("\nla palabra "+palabra+" es palíndroma");

@@ -1,17 +1,23 @@
 package Ejercicios1_40;
-
+/**
+ * 
+ * @author Miriam
+ *
+ */
 public class Ejercicio22 {
 
 	public static void main(String[] args) {
 
 		int vocal[]=new int[5];
 		
-		String palabra="mama";
+		String palabra="Murcielago banana";
 		char caracte;
 		
 		for(int i=0; i<palabra.length();i++) {
 			caracte=Character.toLowerCase(palabra.charAt(i));
-			
+/**
+ * crea un contador para las vocales			
+ */
 			switch(caracte) {
 			case 'a':
 				vocal[0]++;

@@ -1,11 +1,20 @@
 package Ejercicios1_40;
 
 import java.util.Scanner;
-
+/**
+ * 
+ * @author Miriam
+ *
+ */
 public class Ejercicio19 {
 
 	Scanner Leer = new Scanner(System.in);
-	   
+/**
+ * 	   
+ * @param M
+ * @param f
+ * @param c
+ */
 	  public static void llenar (int M [] [], int f, int c)
 	  {
 	      Scanner Leer = new Scanner(System.in);
@@ -18,6 +27,12 @@ public class Ejercicio19 {
 	        }
 	    }
 	    }
+/**
+ * 
+ * @param M
+ * @param f
+ * @param c
+ */
 	    public static void mostrar (int M [] [], int f, int c)
 	    {
 	    for (int i = 1 ; i <= f ; i++)
@@ -29,6 +44,13 @@ public class Ejercicio19 {
 	        }
 	    }
 	    }
+/**
+ * 
+ * @param M
+ * @param f
+ * @param c
+ * @return
+ */
 	    public static int menor (int M [] [], int f, int c)
 	    {
 	    int men = M [1] [1];
@@ -42,6 +64,13 @@ public class Ejercicio19 {
 	    }
 	    return (men);
 	    }
+/**
+ * 	    
+ * @param M
+ * @param f
+ * @param c
+ * @return
+ */
 	    public static int maximo (int M [] [], int f, int c)
 	    {
 	    int max = M [1] [1];
@@ -55,11 +84,22 @@ public class Ejercicio19 {
 	    }
 	    return (max);
 	    }
+/**
+ * 
+ * @param A
+ * @param fa
+ * @param ca
+ * @param B
+ * @param fb
+ * @param cb
+ */
 	    public static void intercambiar (int A [] [], int fa, int ca, int B [] [], int fb, int cb)
 	    {
 	    int min_a = menor (A, fa, ca);
 	    int max_b = maximo (B, fb, cb);
-	    //para cambiar los minimos de A con los maximos de B
+/**
+* para cambiar los minimos de A con los maximos de B
+*/
 	    for (int i = 1 ; i <= fa ; i++)
 	    {
 	        for (int j = 1 ; j <= ca ; j++)
@@ -68,7 +108,9 @@ public class Ejercicio19 {
 	            A [i] [j] = max_b;
 	        }
 	    }
-	    //para intercambiar los maximos de con los minimos de A
+/**
+ * para intercambiar los maximos de con los minimos de A
+ */
 	    for (int i = 1 ; i <= fb ; i++)
 	    {
 	        for (int j = 1 ; j <= cb ; j++)
@@ -91,7 +133,9 @@ public class Ejercicio19 {
 	    int fb = Leer.nextInt();
 	    System.out.print ("Insecte columnas de B: ");
 	    int cb = Leer.nextInt();
-	    //lectura de matrices
+	    /**
+	     * lectura de matrices
+	     */
 	    System.out.println ("\nINSERTANDO DATOS EN MATRIZ A: n");
 	    llenar (A, fa, ca);
 	    System.out.println ("\nINSERTANDO DATOS EN MATRIZ B: n");
@@ -101,7 +145,9 @@ public class Ejercicio19 {
 	    System.out.println ();
 	    mostrar (B, fb, cb);
 	    System.out.println ();
-	    //intercambiando elementos
+	    /**
+	     * intercambiando elementos
+	     */
 	    intercambiar (A, fa, ca, B, fb, cb);
 	    System.out.println ("\nMATRICES DESPUES DEL INTERCAMBIO:");
 	    mostrar (A, fa, ca);

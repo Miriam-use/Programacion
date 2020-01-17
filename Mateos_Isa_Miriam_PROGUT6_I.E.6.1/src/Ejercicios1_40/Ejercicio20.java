@@ -1,9 +1,17 @@
 package Ejercicios1_40;
 
 import java.util.Scanner;
-
+/**
+ * 
+ * @author Miriam
+ *
+ */
 public class Ejercicio20 {
-
+/**
+ * 
+ * @param M
+ * @param d
+ */
 	public static void llenar (int M [] [], int d)
     {
         Scanner Leer = new Scanner(System.in);
@@ -16,6 +24,11 @@ public class Ejercicio20 {
         }
     }
     }
+/**
+ * 
+ * @param M
+ * @param d
+ */
     public static void mostrar (int M [] [], int d)
     {
     for (int i = 1 ; i <= d ; i++)
@@ -27,6 +40,11 @@ public class Ejercicio20 {
         }
     }
     }
+/**
+ * 
+ * @param M
+ * @param d
+ */
     public static void invierte (int M [] [], int d)
     {
     int fin = d;
@@ -38,6 +56,7 @@ public class Ejercicio20 {
         fin--;
     }
     }
+
     public static void main (String args [])
     {
         Scanner Leer = new Scanner(System.in);

@@ -1,7 +1,11 @@
 package Ejercicios1_40;
 
 import java.util.Scanner;
-
+/**
+ * 
+ * @author Miriam
+ *
+ */
 public class Ejercicio13 {
 
 	public static void main(String[] args) {
