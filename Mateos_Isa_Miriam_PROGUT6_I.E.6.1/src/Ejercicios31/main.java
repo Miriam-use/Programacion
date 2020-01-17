@@ -1,9 +1,6 @@
 package Ejercicios31;
 
-import java.util.Random;
 import java.util.Scanner;
-
-import org.omg.PortableInterceptor.Interceptor;
 
 import Ejercicios31.BarcoBatalla;
 import Ejercicios31.Intercepto;

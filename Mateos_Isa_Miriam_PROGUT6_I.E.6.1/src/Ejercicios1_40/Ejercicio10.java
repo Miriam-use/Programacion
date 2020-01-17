@@ -42,14 +42,11 @@ public class Ejercicio10 {
 			for(int j=0; j<vector.length; j++) {
 				if(vector[i]==vector[j]) {
 					f++;
-				}
-				if(f>maxRep) {
-					moda=vector[i];
-					maxRep=f;
+					moda=vector[j];
 				}
 			}
 		}
-		System.out.println("El numero "+moda+" se repite "+maxRep+" veces");
+		System.out.println("El numero "+moda+" es el que mas se repite");
 		
 		/**
 		 * calcular la media

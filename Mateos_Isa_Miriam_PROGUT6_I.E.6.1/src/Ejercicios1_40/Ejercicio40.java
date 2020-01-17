@@ -16,7 +16,7 @@ public class Ejercicio40 {
 							{9,5,2,3},
 							{5,9,4,8}
 							};
-		int array[]= {1,5,9,5};
+		int array[]= {3,7,2,4};
 		int igual[]=new int[4];
 /**
  * compara las columnas		
@@ -40,6 +40,7 @@ public class Ejercicio40 {
 		
 		Scanner leer = new Scanner(System.in);
 		int opcion=leer.nextInt();
+		
 		switch(opcion) {
 		case 1 :
 			System.out.println("Orden Ascendente:\n");
