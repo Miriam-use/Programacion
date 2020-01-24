@@ -1,4 +1,4 @@
-package ColeccionesArrayList;
+package ArrayList;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -68,7 +68,7 @@ public class VentasUso {
  * y las ventas	
  */
 	public static void introducirVentas() {
-		for(int i=0; i<4; i++) {
+		for(int i=0; i<12; i++) {
 			System.out.println("Introduce nombre del mes:");
 			String m=sc.next();
 			System.out.println("Introduce ventas del mes:");
