@@ -12,7 +12,6 @@ import modelo.Persona;
 
 /**
  * @author DAM
- *
  */
 public class EjemploList {
 
