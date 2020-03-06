@@ -24,15 +24,16 @@ public class Catalogo {
 			opcion = sc.nextInt();
 			switch (opcion) {
 			case 1:
+				listarPersonas();
 				break;
 			case 2:
 				menu2();
 				int opc = sc.nextInt();
 				switch(opc) {
 				case 1:
-					System.out.println("Introduzca el nombre: ");
+					System.out.println("Introduzca el nombre autor: ");
 					String nom=sc.next();
-					System.out.println("Introduzca el lugar de nacimiento: ");
+					System.out.println("Introduzca el lugar de nacimiento de autor: ");
 					String lug=sc.next();
 					System.out.println("Introduzca dia de nacimiento: ");
 					int dia=sc.nextInt();
@@ -63,9 +64,9 @@ public class Catalogo {
 					
 					break;
 				case 2:
-					System.out.println("Introduzca el nombre: ");
+					System.out.println("Introduzca el nombre de autor: ");
 					String nom2=sc.next();
-					System.out.println("Introduzca el lugar de nacimiento: ");
+					System.out.println("Introduzca el lugar de nacimiento de autor: ");
 					String lug2=sc.next();
 					System.out.println("Introduzca dia de nacimiento: ");
 					int dia3=sc.nextInt();
@@ -135,11 +136,11 @@ public class Catalogo {
 		} else {
 			for (int i = 0; i < listaObras.size(); i++) {
 				Escultura e =(Escultura) listaObras.get(i);
-				System.out.println("%n"+i+" "+e.toString());
+				System.out.println("\n("+i+") "+e.mostra());
 			}
 			for (int i = 0; i < listaObras.size(); i++) {
 				Pintura p =(Pintura) listaObras.get(i);
-				System.out.println("%n"+i+" "+p.toString());
+				System.out.println("\n("+i+") "+p.mostra());
 			}
 			System.out.println("");
 		}

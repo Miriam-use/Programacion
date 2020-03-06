@@ -1,5 +1,9 @@
 package ejercicio7;
-
+/**
+ * 
+ * @author Miriam
+ *
+ */
 public abstract class Empleado {
 
 	private String nombre;

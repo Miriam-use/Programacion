@@ -1,5 +1,9 @@
 package ejercicio7;
-
+/**
+ * 
+ * @author Miriam
+ *
+ */
 public class EmpleadosPorHoras extends Empleado {
 	
 		double salario;

@@ -18,5 +18,21 @@ public abstract class Empleado {
 		return dni;
 	}
 	
-	public abstract String calcularSaldo();
+	public void setNombre(String nom) {
+		this.nombre=nom;
+	}
+	
+	public void setDNI(String dni) {
+		this.dni=dni;
+	}
+
+	public String calcularSaldo() {
+		return null;
+	}
+
+	@Override
+	public String toString() {
+		return "Empleado [nombre=" + nombre + ", dni=" + dni + "]";
+	}
+	
 }

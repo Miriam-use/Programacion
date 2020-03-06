@@ -46,6 +46,10 @@ public class Pintura extends Obras{
 		return soporte;
 	}
 
+	public String mostra() {
+		return super.toString()+", Alto: "+alto+", Ancho: "+ancho+", Soporte: "+soporte+"]";
+	}
+	
 	@Override
 	public String toString() {
 		return super.toString()+", Alto: "+alto+", Ancho: "+ancho+", Soporte: "+soporte+"]";

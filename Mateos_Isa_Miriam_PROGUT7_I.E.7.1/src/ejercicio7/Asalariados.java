@@ -1,5 +1,9 @@
 package ejercicio7;
-
+/**
+ * 
+ * @author Miriam
+ *
+ */
 public class Asalariados extends Empleado{
 
 	double salario=2520000;

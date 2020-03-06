@@ -24,4 +24,9 @@ public class Directivo extends Empleado{
 		return "Sueldo mas comision: "+(sueldo+comicion);
 	}
 
+	@Override
+	public String toString() {
+		return "Directivo [sueldo=" + sueldo + ", comicion=" + comicion + "]";
+	}
+
 }

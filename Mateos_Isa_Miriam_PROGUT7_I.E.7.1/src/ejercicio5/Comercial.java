@@ -29,4 +29,9 @@ public class Comercial extends Empleado{
 				+"\nSueldo mas comision: "+(sueldobruto+importeventa);
 	}
 
+	@Override
+	public String toString() {
+		return "Comercial [sueldobruto=" + sueldobruto + ", importeventa=" + importeventa + "]";
+	}
+
 }

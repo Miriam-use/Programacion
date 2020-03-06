@@ -1,5 +1,9 @@
 package ejercicio2;
-
+/**
+ * 
+ * @author Miriam
+ *
+ */
 public class Administrador extends Usuarios{
 
 	private int papelera;

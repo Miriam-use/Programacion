@@ -1,5 +1,9 @@
 package ejercicio2;
-
+/**
+ * 
+ * @author Miriam
+ *
+ */
 public class Moderador extends Usuarios{
 
 	private int papelera;

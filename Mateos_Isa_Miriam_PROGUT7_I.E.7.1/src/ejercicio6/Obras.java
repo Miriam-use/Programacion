@@ -45,6 +45,10 @@ public class Obras {
 		return añocreacion;
 	}
 	
+	public String mostra() {
+		return autor.toString()+", Titulo: "+titulo+", Numero: "+numero+", Año de creacion: "+añocreacion;
+	}
+	
 	@Override
 	public String toString() {
 		return autor.toString()+", Titulo: "+titulo+", Numero: "+numero+", Año de creacion: "+añocreacion;

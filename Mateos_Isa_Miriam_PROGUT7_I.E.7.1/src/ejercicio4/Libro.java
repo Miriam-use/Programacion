@@ -1,5 +1,9 @@
 package ejercicio4;
-
+/**
+ * 
+ * @author Miriam
+ *
+ */
 public class Libro extends Publicacion implements Prestable{
 
 	private boolean prestado; 
@@ -7,15 +11,21 @@ public class Libro extends Publicacion implements Prestable{
 	public Libro(){ 
 		super();    
 	} 
-	
-	public Libro(String c,String t,short f,boolean p){ 
+/**
+ * 	
+ * @param c
+ * @param t
+ * @param f
+ * @param p
+ */
+	public Libro(String c,String t,String f,boolean p){ 
 		super(c,t,f); this.prestado=p;    
 	} 
 	
 	public String toString() { 
 		return super.toString()+"\nPrestado: "+prestado;    
 	} 
-	
+
 	public void prestar(){
 		
 	} 
@@ -32,7 +42,10 @@ public class Libro extends Publicacion implements Prestable{
 		}
 		
 	} 
-	
+/**
+ * 	
+ * @return prestado
+ */
 	public boolean getPrestado() { 
 		return prestado;    
 	}

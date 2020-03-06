@@ -1,5 +1,9 @@
 package ejercicio4;
-
+/**
+ * 
+ * @author Miriam
+ *
+ */
 public class Revista extends Publicacion implements Prestable{
 
 	private int num; 
@@ -7,8 +11,14 @@ public class Revista extends Publicacion implements Prestable{
 	public Revista(){ 
 		super();    
 	} 
-	
-	public Revista(String c,String t,short f,int n){ 
+/**
+ * 	
+ * @param c
+ * @param t
+ * @param f
+ * @param n
+ */
+	public Revista(String c,String t,String f,int n){ 
 		super(c,t,f); num=n;    
 	} 
 	
@@ -32,7 +42,10 @@ public class Revista extends Publicacion implements Prestable{
 	public String toString() { 
 		return super.toString()+"\nNº Revista: "+num;    
 	} 
-	
+/**
+ * 	
+ * @return num
+ */
 	public int getNum() { 
 		return num;    
 	}

@@ -11,9 +11,7 @@ public abstract class Cuenta{
 	Persona cliente;
 /**
  * 	
- * @param nom
- * @param apell
- * @param nif
+ * @param c
  * @param num
  * @param sal
  */
@@ -54,11 +52,17 @@ public abstract class Cuenta{
 			System.out.println("Saldo insuficiente");
 		}
 	}
-	
+/**
+ * 	
+ * @param in
+ */
 	public void setactualizarSaldo(double in) {
 		this.saldo-=in;
 	}
-	
+/**
+ * 	
+ * @return
+ */
 	public double getactualizarSaldo() {
 		return saldo;
 	}

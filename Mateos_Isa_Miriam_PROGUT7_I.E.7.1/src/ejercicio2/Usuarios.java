@@ -1,5 +1,9 @@
 package ejercicio2;
-
+/**
+ * 
+ * @author Miriam
+ *
+ */
 public class Usuarios {
 
 	private int mensajes;
@@ -19,11 +23,17 @@ public class Usuarios {
 	public void setDecrementa() {
 		mensajes-=1;
 	}
-	
+/**
+ * 	
+ * @param cor
+ */
 	public  void setModificaCorreo(String cor) {
 		correo=cor;
 	}
-	
+/**
+ * 	
+ * @param ni
+ */
 	public  void setModificaNick(String ni) {
 		nick=ni;
 	}
