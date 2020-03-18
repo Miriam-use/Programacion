@@ -1,0 +1,5 @@
+hola como estas?
+este es un mensaje de
+ejemplo, solo para ver
+si se encuentran los caracteres
+especificados.
