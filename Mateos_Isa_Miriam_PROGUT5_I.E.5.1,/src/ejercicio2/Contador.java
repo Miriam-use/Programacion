@@ -4,10 +4,14 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.util.StringTokenizer;
-
+/**
+ * 
+ * @author Miriam
+ *
+ */
 public class Contador {
 	
-	/*
+	/*CONTENIDO ARCHIVO a.txt
 	 * hola como estas?
 	 * este es un mensaje de
 	 * ejemplo, solo para ver

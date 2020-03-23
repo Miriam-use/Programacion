@@ -7,9 +7,9 @@ import java.io.IOException;
  * @author Miriam
  *
  */
-public class Executable {
+public class eje3 {
 
-	public static void main(String[] args) {
+	public static void main(String[] args){
 		FileInputStream f=null;
 		String s="";
 		char c;
@@ -32,3 +32,4 @@ public class Executable {
 		}
 	}
 }
+
