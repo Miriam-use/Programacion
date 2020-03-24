@@ -23,40 +23,19 @@ public class Alumno {
 	
 	public static void main(String[] args) {
 		
-		double media = 0;
 		
-		for(int i=0; i<4; i++) {
-			String nom=JOptionPane.showInputDialog("Nombre:");
-			String apell=JOptionPane.showInputDialog("Apellido:");
-			String not=JOptionPane.showInputDialog("Nota Media:");
 		
-			String[] texto= {nom+","+apell+","+not};
+			String texto = "Pepe,Rodrigue,5"
+					  +"\nAna,Barragan,6"
+					 +"\nSara,Perez,4"
+					 +"\nPaco,Mateos,8";
 		
 			escribirFichero("Alumno.txt", texto);
 			
-			int numEntero = Integer.parseInt(not);
-			
-			media+=numEntero;
-			
 			mostrarFicheroMay("Alumno.txt");
-		}
-        
-        	System.out.println("\nMedia de notas: "+media/4);
- 
-    }
-	
-	public static void escribirFichero(String nomFich, String[] texto){
-        try(FileWriter fw=new FileWriter(nomFich);){
-        	
-        	for (String textos : texto) {
-        		fw.write(textos+"\n");
-			}	
-        		fw.close();
- 
-        }catch(IOException e){
-            System.out.println("Problemas en la escritura E/S "+e);
-        }
-     
+			
+			calcularNota(texto);
+			
     }
 	
 	public static void mostrarFicheroMay(String nomFich){
@@ -88,4 +67,34 @@ public class Alumno {
 			}
 		}
     }
+	
+	public static void calcularNota(String texto) {
+		char[] nota = texto.toCharArray();
+		String not="";
+		
+		for(int i=0; i<nota.length; i++) {
+			if(Character.isDigit(nota[i])) {
+				not+=nota[i];
+			}
+		}
+		
+		int n = Integer.parseInt(not);
+		double suma=0;
+		while(n>0) {
+			suma += n % 10;
+			n = n /10;
+			}
+
+		System.out.println("Media de notas: " +  suma/4);  //imprime suma
+    }
+	
+	public static void escribirFichero(String nomFich, String texto){
+        try(FileWriter fw=new FileWriter(nomFich);){
+        	
+        		fw.write(texto);	
+ 
+        }catch(IOException e){
+            System.out.println("Problemas en la escritura E/S "+e);
+        }
+	}
 }

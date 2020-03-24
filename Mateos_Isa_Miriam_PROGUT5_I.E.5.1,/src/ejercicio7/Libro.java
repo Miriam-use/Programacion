@@ -13,35 +13,20 @@ import javax.swing.JOptionPane;
 public class Libro {
 
 	public static void main(String[] args) {
-        String cod=JOptionPane.showInputDialog("Introduce codigo del libro");
-        String isbn=JOptionPane.showInputDialog("Introduce el ISBN del libro");
-        String tit=JOptionPane.showInputDialog("Introduce el titulo del libro");
-        String aut=JOptionPane.showInputDialog("Introduce el autor del libro");
-        String edi=JOptionPane.showInputDialog("Introduce la editorial del libro");
-        String anio=JOptionPane.showInputDialog("Introduce el año del libro");
-        String carat=JOptionPane.showInputDialog("Introduce las caracteristica del libro");
+		
+		for(int i=0; i<2; i++) {
+			String cod=JOptionPane.showInputDialog("Introduce codigo del libro");
+			String isbn=JOptionPane.showInputDialog("Introduce el ISBN del libro");
+			String tit=JOptionPane.showInputDialog("Introduce el titulo del libro");
+			String aut=JOptionPane.showInputDialog("Introduce el autor del libro");
+			String edi=JOptionPane.showInputDialog("Introduce la editorial del libro");
+			String anio=JOptionPane.showInputDialog("Introduce el año del libro");
+			String carat=JOptionPane.showInputDialog("Introduce las caracteristica del libro");
 
-        String texto=cod+";"+isbn+";"+tit+";"+aut+";"+edi+";"+anio+";"+carat;
-        
-        
-        if(escribirFichero("Libro.txt", texto)==true) {
-        	
-        	char[] codigo = texto.toCharArray();
-    		String n="";
-    		
-    			if(Character.isDigit(codigo[0])) {
-    				n+=codigo[0];
-    			}
-    		
-    		if(n.equals(cod)) {
-    			escribirFichero("Libro.txt", texto);
-    		}else {
-    			System.out.println("El codigo ya existe");
-    		}
-        }else {
-        	escribirFichero("Libro.txt", texto);
-        }
- 
+			String texto=cod+";"+isbn+";"+tit+";"+aut+";"+edi+";"+anio+";"+carat;
+    	
+			comprobarCodigo(cod, texto);
+		}
     }
 	
 	public static boolean escribirFichero(String nomFich, String texto){
@@ -54,4 +39,19 @@ public class Libro {
         }
 		return true;
     }
+	
+	public static void comprobarCodigo(String cod, String texto) {
+		int codigos = Integer.parseInt(cod);
+    	int[] codigo = {1,2,3};
+		
+		for(int i=0; i<codigo.length; i++) {
+			if(codigo[i]!=codigos) {
+				escribirFichero("ejercicio7/Libro"+cod+".txt", texto);
+				
+			}else {
+				System.out.println("El codigo ya esta siendo usado...");
+			}
+		}
+	}
+	
 }
