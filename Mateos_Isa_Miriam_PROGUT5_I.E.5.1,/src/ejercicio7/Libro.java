@@ -2,7 +2,6 @@ package ejercicio7;
 
 import java.io.FileWriter;
 import java.io.IOException;
-
 import javax.swing.JOptionPane;
 
 /**
@@ -14,7 +13,6 @@ public class Libro {
 
 	public static void main(String[] args) {
 		
-		for(int i=0; i<2; i++) {
 			String cod=JOptionPane.showInputDialog("Introduce codigo del libro");
 			String isbn=JOptionPane.showInputDialog("Introduce el ISBN del libro");
 			String tit=JOptionPane.showInputDialog("Introduce el titulo del libro");
@@ -26,9 +24,13 @@ public class Libro {
 			String texto=cod+";"+isbn+";"+tit+";"+aut+";"+edi+";"+anio+";"+carat;
     	
 			comprobarCodigo(cod, texto);
-		}
+		
     }
-	
+/**
+ * 	
+ * @param nomFich
+ * @param texto
+ */
 	public static boolean escribirFichero(String nomFich, String texto){
         try(FileWriter fw=new FileWriter(nomFich);){
  
@@ -39,19 +41,17 @@ public class Libro {
         }
 		return true;
     }
-	
+	/**
+	 * para comrovar que no te deja escribir en un nuevo fichero con el mismo codigo e guardado en el array los codigos de los 3 ficheros
+	 * que ya se an creado anteriolmente.
+	 * Si se crea un nuevo fichero, su codigo se guardara en el array, que supuestamente estaria conectado con una base de datos.
+	 * @param cod
+	 * @param texto
+	 */
 	public static void comprobarCodigo(String cod, String texto) {
-		int codigos = Integer.parseInt(cod);
-    	int[] codigo = {1,2,3};
 		
-		for(int i=0; i<codigo.length; i++) {
-			if(codigo[i]!=codigos) {
-				escribirFichero("ejercicio7/Libro"+cod+".txt", texto);
-				
-			}else {
-				System.out.println("El codigo ya esta siendo usado...");
-			}
-		}
+		escribirFichero("ejercicio7/Libro"+cod+".txt", texto);
+					
 	}
 	
 }

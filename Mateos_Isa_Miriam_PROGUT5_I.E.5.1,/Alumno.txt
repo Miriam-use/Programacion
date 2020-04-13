@@ -1,4 +1,4 @@
 Pepe,Rodrigue,5
-Ana,Barragan,1
+Ana,Barragan,6
 Sara,Perez,4
 Paco,Mateos,8

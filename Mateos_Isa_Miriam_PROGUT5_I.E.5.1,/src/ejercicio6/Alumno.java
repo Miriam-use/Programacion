@@ -37,7 +37,10 @@ public class Alumno {
 			calcularNota(texto);
 			
     }
-	
+/**
+ * 	
+ * @param nomFich
+ */
 	public static void mostrarFicheroMay(String nomFich){
 		FileInputStream f=null;
 		String s="";
@@ -67,7 +70,10 @@ public class Alumno {
 			}
 		}
     }
-	
+/**
+ * 	
+ * @param texto
+ */
 	public static void calcularNota(String texto) {
 		char[] nota = texto.toCharArray();
 		String not="";
@@ -87,7 +93,11 @@ public class Alumno {
 
 		System.out.println("Media de notas: " +  suma/4);  //imprime suma
     }
-	
+/**
+ * 	
+ * @param nomFich
+ * @param texto
+ */
 	public static void escribirFichero(String nomFich, String texto){
         try(FileWriter fw=new FileWriter(nomFich);){
         	

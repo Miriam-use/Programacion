@@ -20,7 +20,11 @@ public class Convertir {
         mostrarFicheroMay(ruta);
  
     }
- 
+ /**
+  * 
+  * @param nomFich
+  * @param texto
+  */
     public static void escribirFichero(String nomFich, String texto){
         try(FileWriter fw=new FileWriter(nomFich);){
  
@@ -31,7 +35,10 @@ public class Convertir {
             System.out.println("Problemas en la escritura E/S "+e);
         }
     }
- 
+ /**
+  * 
+  * @param nomFich
+  */
     public static void mostrarFicheroMay(String nomFich){
         try(FileReader fr=new FileReader (nomFich)){
  

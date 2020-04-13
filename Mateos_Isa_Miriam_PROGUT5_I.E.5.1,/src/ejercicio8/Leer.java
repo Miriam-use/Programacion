@@ -2,7 +2,6 @@ package ejercicio8;
 
 import java.io.File;
 import java.io.FilenameFilter;
-import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 /**
@@ -53,7 +52,10 @@ public class Leer extends Thread{
             }
         
     }
-
+/**
+ * 
+ * @param dir
+ */
     public void setDirectorioABuscar(String dir) {
 
         this.directorioCarpetaAExaminar = dir;
