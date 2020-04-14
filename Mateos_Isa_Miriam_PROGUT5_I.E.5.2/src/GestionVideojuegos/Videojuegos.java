@@ -20,8 +20,14 @@ public class Videojuegos {
 	public Videojuegos() {
 		
 	}
-	
-	public Videojuegos(int cod, String nom, String fecha, String plata) {
+	/**
+	 * 
+	 * @param cod
+	 * @param nom
+	 * @param fecha
+	 * @param plata
+	 */
+	public Videojuegos(int cod, String nom,  String plata, String fecha) {
 		this.codigo=cod;
 		this.nombre=nom;
 		this.fecha=fecha;	// Entrada recogida como sea (scanner)
@@ -35,55 +41,100 @@ public class Videojuegos {
 		}
 	}
 
+	/**
+	 * 
+	 * @return codigo
+	 */
 	public int getCodigo() {
 		return codigo;
 	}
 
+	/**
+	 * 
+	 * @param codigo
+	 */
 	public void setCodigo(int codigo) {
 		this.codigo = codigo;
 	}
 
+	/**
+	 * 
+	 * @return nombre
+	 */
 	public String getNombre() {
 		return nombre;
 	}
 
+	/**
+	 * 
+	 * @param nombre
+	 */
 	public void setNombre(String nombre) {
 			this.nombre = nombre;
 	}
-	
+	/**
+	 * 
+	 * @return fecha
+	 */
 	public String getFecha() {
 		return fecha;
 	}
 
+	/**
+	 * 
+	 * @param fecha
+	 */
 	public void setFecha(String fecha) {
 		this.fecha = fecha;
 	}
 
+	/**
+	 * 
+	 * @return Fecha
+	 */
 	public Date getFecha2() {
 		return Fecha;
 	}
 
+	/**
+	 * 
+	 * @param fecha
+	 */
 	public void setFecha2(Date fecha) {
 		Fecha = fecha;
 	}
 
+	/**
+	 * 
+	 * @return plataforma
+	 */
 	public String getPlataforma() {
 		return plataforma;
 	}
 
+	/**
+	 * 
+	 * @param plataforma
+	 */
 	public void setPlataforma(String plataforma) {
 		this.plataforma = plataforma;
 	}
-	
+	/**
+	 * 
+	 * @return Mostrar()
+	 */
 	public String Mostrar() {
 		return "Código del videojuego: "+codigo
 				+"\nNombre del videojuego: "+nombre
 				+"\nPlataforma: "+plataforma
 				+"\nFecha de lanzamiento: "+fecha;
 	}
-	
+	/**
+	 * 
+	 * @return Fichero Escritura
+	 */
 	public String FicheroEscritura() {
-		return codigo+","+nombre+","+plataforma+","+fecha;
+		return codigo+"%"+nombre+"%"+plataforma+"%"+fecha;
 	}
 
 	@Override

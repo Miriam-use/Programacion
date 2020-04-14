@@ -2,8 +2,10 @@ package GestionVideojuegos;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -34,6 +36,7 @@ public class Main {
 	       ArrayList <Videojuegos> videojuego = new ArrayList <Videojuegos>();
 	       
 	       PlataformaLista p = new PlataformaLista();
+	       Funciondat fdat = new Funciondat();
 	       String[] pl = p.Lista();
 	       Videojuegos v = null;
 	       int cont=1;
@@ -48,6 +51,7 @@ public class Main {
 	       if (!archivo.exists()) {
 	           System.out.println("OJO: ¡¡No existe el archivo de configuración!!\n");
 	       }else {
+	    	   fdat.imprimir(videojuego);
 	    	   System.out.println("El fichero ya existe\n");
 	    	   
 	       }
@@ -89,18 +93,26 @@ public class Main {
 	        	     		   Date fechaDate1 = formateador.parse(fecha);
 	        	     		   Date fechaDate2 = formateador.parse(fechaSistema);
 	        	     		//Se verifica la fecha, la plataforma y se crea el objeto Videojuegos
-	        	     		   if ( fechaDate1.before(fechaDate2) ){
+	        	     		   
 	        	     			   for(int i=0; i<pl.length; i++) {
 	        	     				   if(pl[i].equals(plataforma)) {
-	        	     					  videojuego.add(v = new Videojuegos(cont++, nombre, fecha, plataforma));
+	        	     					  
+	        	     					 if ( fechaDate1.before(fechaDate2) ){
+	        	     						 
+	        	     						videojuego.add(v = new Videojuegos(cont++, nombre, plataforma, fecha));
+	        	     						 
+	        	     					}else{
+	        	     						
+	   	        	    			     if ( fechaDate2.before(fechaDate1) ){
+	   	        	    			    	 System.err.println("Error en los datos de fecha");
+	   	        	    			     }
+	   	        	    			     
+	   	        	    			    }
+	        	     					 
 	        	     				   }
 	        	     			   }
-	        	     			  System.out.println("Error en los datos de la plataforma");
-	        	     		  }else{
-	        	    			     if ( fechaDate2.before(fechaDate1) ){
-	        	    			    	 System.err.println("Error en los datos de fecha");
-	        	    			     }
-	        	    			    }
+	        	     			  
+	        	     		  
 	        	    			  } catch (ParseException e) {
 	        	    			   System.out.println("Se Produjo un Error!!!  "+e.getMessage());
 	        	    			  }
@@ -144,28 +156,30 @@ public class Main {
 	        		   break;
 	        	   case 4:
 	        		   
-	        		  try {
+	        		 // try {
      	            	
      	            	//Guardando ArrayList en el fichero videojuegos.dat
      	            	
-     	            	/*ObjectOutputStream escribiendoFichero = new ObjectOutputStream(new FileOutputStream("videojuegos.txt"));
+     	            	/*ObjectOutputStream escribiendoFichero = new ObjectOutputStream(new FileOutputStream("videojue.dat"));
      	            	escribiendoFichero.writeObject(videojuego);
      	            	escribiendoFichero.close();*/
      	            	
-     	            	String ruta = "videojue.dat";
+     	            	fdat.guardar(videojuego);
+     	            	
+     	            	/*String ruta = "videojue.dat";
      	                File f = new File(ruta);
      	                FileWriter fw = new FileWriter(f);
      	                PrintWriter escritura = new PrintWriter(fw);
      	                for(int i=0;i<videojuego.size();i++){
      	                     escritura.println(videojuego.get(i).FicheroEscritura());
      	                }
-     	                escritura.close();
+     	                escritura.close();*/
      	            	
-     	                System.out.println("Los datos se han guardado correctamente en el fichero videojue.dat");
+     	            	//System.out.println("Los datos se han guardado correctamente en el fichero videojue.dat");
      	                
-     	            } catch (Exception e) {
+     	          /*  } catch (Exception e) {
      	                System.out.println(e.getMessage());
-     	            }
+     	            }*/
 	        		   
 	        		   break;
 	        	   case 5:
@@ -178,18 +192,14 @@ public class Main {
 	        			   
 	        			   String s=sn.next();
 	        			   if(s.equals("S") || s.equals("s")) {
+	        				   /**
+	        				    * Cargar el fichero
+	        				    */
 	        				   String fichero = "videojue.dat";
-	        				   try
-	        				   {
-	        				      ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fichero));
-	        				      while (true){
-	        				    	  v = (Videojuegos)(ois.readObject());
-	        				         videojuego.add(v);
-	        				      }
-	        				      
-	        				   } catch (Exception e) {
-	        					   System.out.println(e.getMessage());
-	        				   }
+	        				   
+	        				   fdat.imprimir(videojuego);
+	        				   
+	        				   
 		        		   }else {
 		        			   System.out.println("Cancelando la carga del archivo...");
 		        		   }
