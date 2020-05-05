@@ -52,6 +52,7 @@ public class Main {
 	           System.out.println("OJO: ¡¡No existe el archivo de configuración!!\n");
 	       }else {
 	    	   fdat.imprimir(videojuego);
+	    	   cont=(fdat.CodigoID()+1);
 	    	   System.out.println("El fichero ya existe\n");
 	    	   
 	       }
@@ -155,32 +156,7 @@ public class Main {
 	        		   bor=true;	        		   
 	        		   break;
 	        	   case 4:
-	        		   
-	        		 // try {
-     	            	
-     	            	//Guardando ArrayList en el fichero videojuegos.dat
-     	            	
-     	            	/*ObjectOutputStream escribiendoFichero = new ObjectOutputStream(new FileOutputStream("videojue.dat"));
-     	            	escribiendoFichero.writeObject(videojuego);
-     	            	escribiendoFichero.close();*/
-     	            	
-     	            	fdat.guardar(videojuego);
-     	            	
-     	            	/*String ruta = "videojue.dat";
-     	                File f = new File(ruta);
-     	                FileWriter fw = new FileWriter(f);
-     	                PrintWriter escritura = new PrintWriter(fw);
-     	                for(int i=0;i<videojuego.size();i++){
-     	                     escritura.println(videojuego.get(i).FicheroEscritura());
-     	                }
-     	                escritura.close();*/
-     	            	
-     	            	//System.out.println("Los datos se han guardado correctamente en el fichero videojue.dat");
-     	                
-     	          /*  } catch (Exception e) {
-     	                System.out.println(e.getMessage());
-     	            }*/
-	        		   
+	        		   fdat.guardar(videojuego);
 	        		   break;
 	        	   case 5:
               	

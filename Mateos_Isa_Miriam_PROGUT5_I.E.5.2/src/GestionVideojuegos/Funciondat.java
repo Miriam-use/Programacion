@@ -33,7 +33,7 @@ public class Funciondat implements Serializable{
 		try {
              File f = new File(ruta);
              if(f.exists()) {
-            	 FileWriter fw = new FileWriter(f, true);
+            	 FileWriter fw = new FileWriter(f);
                  PrintWriter escritura = new PrintWriter(fw);
                  for(int i=0;i<videojuego.size();i++){
                       escritura.println(videojuego.get(i).FicheroEscritura());
@@ -74,7 +74,7 @@ public class Funciondat implements Serializable{
  * Restaura los datos del archivo ala clase Videojuegos y meterlo en el arraylist	
  * @param videojuego
  */
-	
+	private int cod;
 	public void imprimir(ArrayList<Videojuegos> videojuego) {
 		Videojuegos v;
 		try {
@@ -87,7 +87,7 @@ public class Funciondat implements Serializable{
 				while((linea = br.readLine()) != null) {
 					
 					String [] juego = linea.split("%");
-					int cod =Integer.parseInt(juego[0]);
+					cod = Integer.parseInt(juego[0]);
 					videojuego.add(v = new Videojuegos(cod, juego[1], juego[2], juego[3]));
 					
 				}
@@ -132,6 +132,9 @@ public class Funciondat implements Serializable{
 	            e.printStackTrace();
 
 	        }*/
-		
+	}
+	
+	public int CodigoID() {
+		return cod;
 	}
 }
