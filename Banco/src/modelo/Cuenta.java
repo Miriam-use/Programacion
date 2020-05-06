@@ -13,7 +13,7 @@ public class Cuenta {
 
 	private int num_Cuenta;
 	private String fechaCreada;
-	private double saldo;
+	private int saldo;
 	private Date Fecha;
 	private Usuario nif;
 	
@@ -69,14 +69,14 @@ public class Cuenta {
  * 	
  * @return saldo
  */
-	public double getSaldo() {
+	public int getSaldo() {
 		return saldo;
 	}
 /**
  * 	
  * @param saldo
  */
-	public void setSaldo(double saldo) {
+	public void setSaldo(int saldo) {
 		this.saldo = saldo;
 	}
 /**

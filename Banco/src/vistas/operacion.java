@@ -8,6 +8,10 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import controlador.controlador;
+import modelo.Operaciones;
+
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -25,7 +29,9 @@ public class operacion extends JFrame {
 	private JTextField nc1;
 	private JTextField sal;
 	private JTextField nc2;
-
+	
+	Operaciones op;
+	controlador con;
 	/**
 	 * Launch the application.
 	 */
@@ -53,63 +59,86 @@ public class operacion extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JButton btnIngresar = new JButton("Ingresar");
-		btnIngresar.setBounds(335, 11, 89, 72);
-		contentPane.add(btnIngresar);
-		
-		JButton btnRetirar = new JButton("Retirar");
-		btnRetirar.setBounds(335, 94, 89, 72);
-		contentPane.add(btnRetirar);
-		
-		JButton btnTransferir = new JButton("Transferir");
-		btnTransferir.setBounds(335, 178, 89, 72);
-		contentPane.add(btnTransferir);
-		
-		nif = new JTextField();
-		nif.setBounds(98, 62, 134, 20);
-		contentPane.add(nif);
-		nif.setColumns(9);
-		
 		JLabel lblDniCliente = new JLabel("DNI Cliente");
 		lblDniCliente.setFont(new Font("Tahoma", Font.BOLD, 13));
 		lblDniCliente.setBounds(10, 65, 89, 14);
 		contentPane.add(lblDniCliente);
 		
-		nc1 = new JTextField();
-		nc1.setColumns(10);
-		nc1.setBounds(126, 111, 134, 20);
-		contentPane.add(nc1);
+		nif = new JTextField();
+		nif.setColumns(10);
+		nif.setBounds(98, 62, 134, 20);
+		contentPane.add(nif);
 		
 		JLabel lblNumeroCuenta = new JLabel("Numero Cuenta");
 		lblNumeroCuenta.setFont(new Font("Tahoma", Font.BOLD, 13));
 		lblNumeroCuenta.setBounds(10, 113, 106, 14);
 		contentPane.add(lblNumeroCuenta);
 		
-		sal = new JTextField();
-		sal.setColumns(10000);
-		sal.setBounds(60, 154, 134, 20);
-		contentPane.add(sal);
+		nc1 = new JTextField();
+		nc1.setColumns(11);
+		nc1.setBounds(126, 111, 97, 20);
+		contentPane.add(nc1);
 		
 		JLabel lblSaldo = new JLabel("Saldo");
 		lblSaldo.setFont(new Font("Tahoma", Font.BOLD, 13));
 		lblSaldo.setBounds(10, 156, 89, 14);
 		contentPane.add(lblSaldo);
 		
-		nc2 = new JTextField();
-		nc2.setColumns(10);
-		nc2.setBounds(191, 196, 134, 20);
-		contentPane.add(nc2);
+		sal = new JTextField();
+		sal.setColumns(225);
+		sal.setBounds(60, 154, 134, 20);
+		contentPane.add(sal);
 		
-		JLabel lblNumeroCuentaTransferir = new JLabel("*Numero Cuenta Transferir");
+		JLabel lblNumeroCuentaTransferir = new JLabel("*Numero Cuenta a Transferir");
 		lblNumeroCuentaTransferir.setForeground(Color.BLACK);
 		lblNumeroCuentaTransferir.setFont(new Font("Tahoma", Font.BOLD, 13));
-		lblNumeroCuentaTransferir.setBounds(10, 198, 184, 14);
+		lblNumeroCuentaTransferir.setBounds(10, 198, 206, 14);
 		contentPane.add(lblNumeroCuentaTransferir);
 		
-		JLabel lblcampoObligatorioSolo = new JLabel("     *Campo obligatorio solo para trasferir");
+		nc2 = new JTextField();
+		nc2.setColumns(11);
+		nc2.setBounds(210, 196, 97, 20);
+		contentPane.add(nc2);
+		
+		JLabel lblcampoObligatorioSolo = new JLabel("*Campo obligatorio solo para trasferir");
 		lblcampoObligatorioSolo.setFont(new Font("Tahoma", Font.ITALIC, 11));
 		lblcampoObligatorioSolo.setForeground(Color.RED);
-		lblcampoObligatorioSolo.setBounds(0, 11, 260, 14);
+		lblcampoObligatorioSolo.setBounds(10, 11, 260, 14);
 		contentPane.add(lblcampoObligatorioSolo);
+		
+		JButton btnTransferir = new JButton("Transferir");
+		btnTransferir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int id=Integer.parseInt(nc1.getText());
+				int saldo=Integer.parseInt(sal.getText());
+				con.Retirada(id, saldo, nif.getText());
+				int id2=Integer.parseInt(nc2.getText());
+				con.Transferir(id2, saldo);
+			}
+		});
+		
+		JButton btnRetirar = new JButton("Retirar");
+		btnRetirar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int id=Integer.parseInt(nc1.getText());
+				int saldo=Integer.parseInt(sal.getText());
+				con.Retirada(id, saldo, nif.getText());
+			}
+		});
+		
+		JButton btnIngresar = new JButton("Ingresar");
+		btnIngresar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int id=Integer.parseInt(nc1.getText());
+				int saldo=Integer.parseInt(sal.getText());
+				con.Ingresa(id, saldo, nif.getText());
+			}
+		});
+		btnIngresar.setBounds(335, 11, 89, 72);
+		contentPane.add(btnIngresar);
+		btnRetirar.setBounds(335, 94, 89, 72);
+		contentPane.add(btnRetirar);
+		btnTransferir.setBounds(335, 178, 89, 72);
+		contentPane.add(btnTransferir);
 	}
 }

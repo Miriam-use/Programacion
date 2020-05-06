@@ -1,5 +1,6 @@
 package controlador;
 
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import modelo.Operaciones;
@@ -8,6 +9,10 @@ import vistas.menu;
 public class main {
 
 	public static void main(String[] args) {
+		
+		/*menu men = new menu();
+		men.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		men.setVisible(true);
 		
 		/*conexion c =new conexion();
 		c.conectar();
@@ -25,10 +30,12 @@ public class main {
 		
 		
 		controlador con=new controlador();
-		//con.crearUsuario("Maria", "Fran", "15975364O", "Calle Sur", 1880, 159753640, "maria@gmail.com");
-		//con.crearCuenta("15975364O");
-		//con.eliminarUsuario("15975364O");
-		//con.eliminarCuenta(6, "15975364O");
+		//con.listaUsuario("Maria", "Fran", "15975364O", "Calle Sur", 1880, 159753640, null);
+		
+		//con.Ingresa(1, 10, "12345678L");
+		//con.Retirada(1, 10, "12345678L");
+		//con.Transferir(2,10);
+		
 		
 	}
 

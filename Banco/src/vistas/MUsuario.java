@@ -6,9 +6,18 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import controlador.controlador;
+
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.sql.ResultSet;
+import java.awt.event.ActionEvent;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 public class MUsuario extends JFrame {
 
@@ -21,6 +30,8 @@ public class MUsuario extends JFrame {
 	private JTextField apell;
 	private JTextField nif;
 
+	controlador con=new controlador();
+	private JTable table;
 	/**
 	 * Launch the application.
 	 */
@@ -111,16 +122,59 @@ public class MUsuario extends JFrame {
 		contentPane.add(nif);
 		nif.setColumns(10);
 		
-		JButton btnListar = new JButton("Listar");
-		btnListar.setBounds(32, 264, 98, 38);
-		contentPane.add(btnListar);
-		
 		JButton btnAadir = new JButton("A\u00F1adir");
-		btnAadir.setBounds(172, 264, 98, 38);
+		btnAadir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int ani=Integer.parseInt(anio.getText());
+				int t=Integer.parseInt(tlf.getText());
+				con.crearUsuario(nom.getText(), apell.getText(), nif.getText(), direc.getText(), ani, t, email.getText());
+			}
+		});
+		btnAadir.setBounds(20, 264, 98, 38);
 		contentPane.add(btnAadir);
 		
 		JButton btnEliminar = new JButton("Eliminar");
-		btnEliminar.setBounds(326, 264, 98, 38);
+		btnEliminar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				con.eliminarUsuario(nif.getText());
+			}
+		});
+		btnEliminar.setBounds(187, 264, 98, 38);
 		contentPane.add(btnEliminar);
+		
+		JButton btnModificar = new JButton("Modificar");
+		btnModificar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int ani=Integer.parseInt(anio.getText());
+				int t=Integer.parseInt(tlf.getText());
+				con.modificarUsuario(nom.getText(), apell.getText(), nif.getText(), direc.getText(), ani, t, email.getText());
+			}
+		});
+		btnModificar.setBounds(347, 264, 98, 38);
+		contentPane.add(btnModificar);
+		
+		table = new JTable();
+		table.setModel(new DefaultTableModel(
+			new Object[][] {
+			},
+			new String[] {
+				"nif", "nombre", "apellido", "a\u00F1o", "direccion", "email", "telefono"
+			}
+		));
+		table.setBounds(10, 11, 435, 120);
+		contentPane.add(table);
+		/*int numCols=table.getModel().getColumnCount();
+		Object[] fila=new Object[numCols];
+		fila[0]="12345678M";
+		fila[1]="Ana";
+		fila[2]="F";
+		fila[3]=1895;
+		fila[4]="Calle Sur";
+		fila[5]="ana@gmail";
+		fila[6]=123456789;*/
+		
+		((DefaultTableModel)table.getModel()).addRow(con.TablaUsuario());
 	}
+	
+	
 }
