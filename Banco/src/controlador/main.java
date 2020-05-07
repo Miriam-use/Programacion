@@ -30,11 +30,8 @@ public class main {
 		
 		
 		controlador con=new controlador();
-		//con.listaUsuario("Maria", "Fran", "15975364O", "Calle Sur", 1880, 159753640, null);
 		
-		//con.Ingresa(1, 10, "12345678L");
-		//con.Retirada(1, 10, "12345678L");
-		//con.Transferir(2,10);
+		
 		
 		
 	}

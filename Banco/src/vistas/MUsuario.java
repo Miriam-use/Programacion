@@ -163,9 +163,9 @@ public class MUsuario extends JFrame {
 		));
 		table.setBounds(10, 11, 435, 120);
 		contentPane.add(table);
-		/*int numCols=table.getModel().getColumnCount();
+		int numCols=table.getModel().getColumnCount();
 		Object[] fila=new Object[numCols];
-		fila[0]="12345678M";
+		/*fila[0]="12345678M";
 		fila[1]="Ana";
 		fila[2]="F";
 		fila[3]=1895;
@@ -173,7 +173,8 @@ public class MUsuario extends JFrame {
 		fila[5]="ana@gmail";
 		fila[6]=123456789;*/
 		
-		((DefaultTableModel)table.getModel()).addRow(con.TablaUsuario());
+		
+		((DefaultTableModel)table.getModel()).addRow(fila);
 	}
 	
 	

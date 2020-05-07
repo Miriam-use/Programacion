@@ -31,7 +31,7 @@ public class operacion extends JFrame {
 	private JTextField nc2;
 	
 	Operaciones op;
-	controlador con;
+	controlador con=new controlador();
 	/**
 	 * Launch the application.
 	 */
@@ -122,7 +122,8 @@ public class operacion extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				int id=Integer.parseInt(nc1.getText());
 				int saldo=Integer.parseInt(sal.getText());
-				con.Retirada(id, saldo, nif.getText());
+			    con.Retirada(id, saldo, nif.getText());
+				
 			}
 		});
 		
@@ -134,11 +135,13 @@ public class operacion extends JFrame {
 				con.Ingresa(id, saldo, nif.getText());
 			}
 		});
+		
 		btnIngresar.setBounds(335, 11, 89, 72);
 		contentPane.add(btnIngresar);
 		btnRetirar.setBounds(335, 94, 89, 72);
 		contentPane.add(btnRetirar);
 		btnTransferir.setBounds(335, 178, 89, 72);
 		contentPane.add(btnTransferir);
+		
 	}
 }

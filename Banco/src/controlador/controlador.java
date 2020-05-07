@@ -11,6 +11,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+import org.junit.Test;
+
 import controlador.conexion;
 import modelo.Cuenta;
 import modelo.Usuario;
@@ -26,6 +28,7 @@ public class controlador {
 	private DefaultTableModel dt;
 	private PreparedStatement ps;
 	private ResultSet rs;
+	
 /**
  * 	
  * @param nom
@@ -37,6 +40,7 @@ public class controlador {
  * @param ema
  * @return true Nuevo usuario creado
  */
+	
 	public boolean crearUsuario(String nom, String apll, String nif, String dirc, int anio, int telf, String ema) {
 		Connection conn = null;
         PreparedStatement prst = null;
@@ -63,6 +67,7 @@ public class controlador {
  * @param nif
  * @return true Nueva cuenta creada
  */
+	
 	public boolean crearCuenta(String nif) {
 		Connection conn = null;
         PreparedStatement prst = null;
@@ -89,6 +94,7 @@ public class controlador {
  * @param nif
  * @return true usuario borrado
  */
+	
 	public boolean eliminarUsuario(String nif) {
 		Connection conn = null;
         PreparedStatement prst = null;
@@ -174,10 +180,12 @@ public class controlador {
  * @param dni
  * @return true ingresar saldo
  */
+	
 	public boolean Ingresa(int id, int cantidad, String dni) {
 		Connection conn = null;
 		PreparedStatement prst = null;
 		ResultSet rs = null;
+		
 		int rows = 0; //registros afectados
 		String ing="UPDATE cuenta SET saldo=(saldo+"+cantidad+") WHERE n_cuenta='"+id+"' AND nif_usuario='"+dni+"'";
 		try {
@@ -248,42 +256,31 @@ public class controlador {
         }	
 	}
 	
-	public Object[][] TablaUsuario() {
+	public Object[] TablaUsuario() {
 		Connection conn = null;
 		PreparedStatement prst = null;
 		ResultSet rs = null;
 		DefaultTableModel tablemodel = new DefaultTableModel();
-	    int registros = 0;
-	    String[] usuario= {"nif", "nombre", "apellido", "anio_nacimiento", "direccion", "email", "telefono"};
-	    //obtenemos la cantidad de registros existentes en la tabla y se almacena en la variable "registros"
-	    //para formar la matriz de datos
-	    try {
-	    	conn = conx.conectar();
-			prst = conn.prepareStatement( "SELECT count(*) as total FROM usuario");
-	        ResultSet res = prst.executeQuery();
-	        res.next();
-	        registros = res.getInt("total");
-	        res.close();
-		} catch (SQLException e) {
-			JOptionPane.showMessageDialog(null,"ERROR en la operacion");
-		}
+	    
 	  //se crea una matriz con tantas filas y columnas que necesite
-	    Object[][] data = new String[registros][7];
+	    Object[] data = new String[7];
 	    try{
 	          //realizamos la consulta sql y llenamos los datos en la matriz "Object[][] data"
 	    	conn = conx.conectar();
 			prst = conn.prepareStatement("SELECT * FROM usuario");
 	         ResultSet res = prst.executeQuery();
-	         int i=0;
 	         while(res.next()){
-	                data[i][0] = res.getString(1);
-	                data[i][1] = res.getString(2);
-	                data[i][2] = res.getString(3);
-	                data[i][3] = res.getInt(4);
-	                data[i][4] = res.getString(5);
-	                data[i][5] = res.getString(6);
-	                data[i][6] = res.getInt(7);
-	            i++;
+	                data[0] = res.getString(1);
+	                data[1] = res.getString(2);
+	                data[2] = res.getString(3);
+	                data[3] = res.getInt(4);
+	                data[4] = res.getString(5);
+	                data[5] = res.getString(6);
+	                data[6] = res.getInt(7);
+	           
+	         }
+	         for(int i=0; i<7; i++) {
+	        	 System.out.println(data[i]);
 	         }
 	         res.close();
 	         }catch(SQLException e){
