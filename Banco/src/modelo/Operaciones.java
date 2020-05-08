@@ -63,11 +63,11 @@ public class Operaciones {
 	}
 
 	public void Ingresa(int id, int cantidad, String dni) {
-		con.Ingresa(id, cantidad, dni);
+		con.Ingresa(id, cantidad);
 	}
 	
 	public void Retirada(int id, int cantidad, String dni) {
-		con.Retirada(id, cantidad, dni);
+		con.Retirada(id, cantidad);
 	}
 	
 	public void Transferir(int id2, int cantidad) {

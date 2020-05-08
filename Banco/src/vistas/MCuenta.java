@@ -44,7 +44,7 @@ public class MCuenta extends JFrame {
 	 */
 	public MCuenta() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 189);
+		setBounds(100, 100, 450, 205);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -53,7 +53,15 @@ public class MCuenta extends JFrame {
 		JButton btnAador = new JButton("A\u00F1adir");
 		btnAador.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				con.crearCuenta(nifUsu.getText());
+				if(con.verificarCuenta(nifUsu.getText())==true) {
+					int num=Integer.parseInt(numCuent.getText());
+					if(con.verificarTitular(num)==true) {
+						con.nuevoTitular(num, nifUsu.getText());
+					}else {
+						con.nuevoTitular(num, nifUsu.getText());
+						con.crearCuenta(num);
+					}
+				}
 			}
 		});
 		btnAador.setBounds(82, 91, 98, 38);
@@ -63,13 +71,16 @@ public class MCuenta extends JFrame {
 		btnEliminar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int num=Integer.parseInt(numCuent.getText());
-				con.eliminarCuenta(num, nifUsu.getText());
+				con.eliminarTitular(num, nifUsu.getText());
+				if(con.verificarTitular(num)==false) {
+					con.eliminarCuenta(num, nifUsu.getText());
+				}
 			}
 		});
 		btnEliminar.setBounds(235, 91, 98, 38);
 		contentPane.add(btnEliminar);
 		
-		JLabel lblNCuenta = new JLabel("*n\u00BA Cuenta:");
+		JLabel lblNCuenta = new JLabel("n\u00BA Cuenta:");
 		lblNCuenta.setBounds(10, 25, 72, 14);
 		contentPane.add(lblNCuenta);
 		
@@ -87,9 +98,14 @@ public class MCuenta extends JFrame {
 		contentPane.add(nifUsu);
 		nifUsu.setColumns(10);
 		
-		JLabel lblsoloNecesariaA = new JLabel("*Solo necesaria a la hora de borra");
-		lblsoloNecesariaA.setForeground(Color.RED);
-		lblsoloNecesariaA.setBounds(0, 0, 195, 14);
-		contentPane.add(lblsoloNecesariaA);
+		JButton btnMenu = new JButton("menu");
+		btnMenu.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				setVisible(false);
+				new menu().setVisible(true);
+			}
+		});
+		btnMenu.setBounds(345, 143, 89, 23);
+		contentPane.add(btnMenu);
 	}
 }

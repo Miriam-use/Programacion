@@ -11,7 +11,7 @@ public class puebaUnitaria {
 	
 	@Test
 	public void Crear() {
-		assertTrue(con.crearCuenta("12345678P"));
+		assertTrue(con.verificarCuenta("12345678L"));
 	}
 	
 	@Test

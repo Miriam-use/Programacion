@@ -10,7 +10,7 @@ public class main {
 
 	public static void main(String[] args) {
 		
-		/*menu men = new menu();
+		menu men = new menu();
 		men.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		men.setVisible(true);
 		
@@ -29,7 +29,7 @@ public class main {
 		}*/
 		
 		
-		controlador con=new controlador();
+		//controlador con=new controlador();
 		
 		
 		

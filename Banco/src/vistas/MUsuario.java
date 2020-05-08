@@ -53,7 +53,7 @@ public class MUsuario extends JFrame {
 	 */
 	public MUsuario() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 471, 352);
+		setBounds(100, 100, 471, 381);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -127,7 +127,10 @@ public class MUsuario extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				int ani=Integer.parseInt(anio.getText());
 				int t=Integer.parseInt(tlf.getText());
-				con.crearUsuario(nom.getText(), apell.getText(), nif.getText(), direc.getText(), ani, t, email.getText());
+				if(con.verificarUsuario(nif.getText())==false) {
+					con.crearUsuario(nom.getText(), apell.getText(), nif.getText(), direc.getText(), ani, t, email.getText());
+				}
+				
 			}
 		});
 		btnAadir.setBounds(20, 264, 98, 38);
@@ -148,34 +151,26 @@ public class MUsuario extends JFrame {
 				int ani=Integer.parseInt(anio.getText());
 				int t=Integer.parseInt(tlf.getText());
 				con.modificarUsuario(nom.getText(), apell.getText(), nif.getText(), direc.getText(), ani, t, email.getText());
+				
 			}
 		});
 		btnModificar.setBounds(347, 264, 98, 38);
 		contentPane.add(btnModificar);
 		
-		table = new JTable();
-		table.setModel(new DefaultTableModel(
-			new Object[][] {
-			},
-			new String[] {
-				"nif", "nombre", "apellido", "a\u00F1o", "direccion", "email", "telefono"
+		JButton btnMenu = new JButton("menu");
+		btnMenu.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				new menu().setVisible(true);
 			}
-		));
-		table.setBounds(10, 11, 435, 120);
+		});
+		btnMenu.setBounds(366, 319, 89, 23);
+		contentPane.add(btnMenu);
+		
+		table = new JTable();
+		table.setBounds(10, 11, 435, 140);
 		contentPane.add(table);
-		int numCols=table.getModel().getColumnCount();
-		Object[] fila=new Object[numCols];
-		/*fila[0]="12345678M";
-		fila[1]="Ana";
-		fila[2]="F";
-		fila[3]=1895;
-		fila[4]="Calle Sur";
-		fila[5]="ana@gmail";
-		fila[6]=123456789;*/
 		
 		
-		((DefaultTableModel)table.getModel()).addRow(fila);
 	}
-	
-	
 }

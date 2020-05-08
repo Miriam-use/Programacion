@@ -48,6 +48,7 @@ public class menu extends JFrame {
 		JButton btnMantenimientoUsuario = new JButton("Mantenimiento Usuario");
 		btnMantenimientoUsuario.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				setVisible(false);
 				new MUsuario().setVisible(true);
 			}
 		});
@@ -58,6 +59,7 @@ public class menu extends JFrame {
 		JButton btnMantenimientoUsuario_1 = new JButton("Realizar Movimientos en Cuenta Bancaria");
 		btnMantenimientoUsuario_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
 				new operacion().setVisible(true);
 			}
 		});
@@ -67,6 +69,7 @@ public class menu extends JFrame {
 		JButton btnMantenimientoUsuario_1_1 = new JButton("Consultar Estado de Cuenta y Operaciones");
 		btnMantenimientoUsuario_1_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				setVisible(false);
 				new CCuenta().setVisible(true);
 			}
 		});
@@ -76,6 +79,7 @@ public class menu extends JFrame {
 		JButton btnMantenimientoUsuario_1_2 = new JButton("Mantenimiento Cuentas");
 		btnMantenimientoUsuario_1_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
 				new MCuenta().setVisible(true);
 			}
 		});

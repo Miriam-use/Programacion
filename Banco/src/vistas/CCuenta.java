@@ -10,6 +10,9 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JList;
+import javax.swing.JTable;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class CCuenta extends JFrame {
 
@@ -17,6 +20,7 @@ public class CCuenta extends JFrame {
 	private JTextField numcuenta;
 	private JTextField nif;
 	private JTextField fechacrea;
+	private JTable table;
 
 	/**
 	 * Launch the application.
@@ -39,7 +43,7 @@ public class CCuenta extends JFrame {
 	 */
 	public CCuenta() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 450, 347);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -75,5 +79,19 @@ public class CCuenta extends JFrame {
 		JButton btnListar = new JButton("Listar");
 		btnListar.setBounds(312, 75, 86, 36);
 		contentPane.add(btnListar);
+		
+		JButton btnMenu = new JButton("menu");
+		btnMenu.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				setVisible(false);
+				new menu().setVisible(true);
+			}
+		});
+		btnMenu.setBounds(345, 285, 89, 23);
+		contentPane.add(btnMenu);
+		
+		table = new JTable();
+		table.setBounds(10, 133, 414, 142);
+		contentPane.add(table);
 	}
 }

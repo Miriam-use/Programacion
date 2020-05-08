@@ -53,7 +53,7 @@ public class operacion extends JFrame {
 	 */
 	public operacion() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 450, 321);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -111,9 +111,12 @@ public class operacion extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				int id=Integer.parseInt(nc1.getText());
 				int saldo=Integer.parseInt(sal.getText());
-				con.Retirada(id, saldo, nif.getText());
-				int id2=Integer.parseInt(nc2.getText());
-				con.Transferir(id2, saldo);
+				if(con.verificarTitularOperacion(id, nif.getText())==true) {
+					con.Retirada(id, saldo);
+					int id2=Integer.parseInt(nc2.getText());
+					con.Transferir(id2, saldo);
+					con.Operar("Transferencia", saldo, id, nif.getText());
+				}
 			}
 		});
 		
@@ -122,8 +125,10 @@ public class operacion extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				int id=Integer.parseInt(nc1.getText());
 				int saldo=Integer.parseInt(sal.getText());
-			    con.Retirada(id, saldo, nif.getText());
-				
+				if(con.verificarTitularOperacion(id, nif.getText())==true) {
+					con.Retirada(id, saldo);
+				    con.Operar("Retirar", saldo, id, nif.getText());
+				}
 			}
 		});
 		
@@ -132,7 +137,10 @@ public class operacion extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				int id=Integer.parseInt(nc1.getText());
 				int saldo=Integer.parseInt(sal.getText());
-				con.Ingresa(id, saldo, nif.getText());
+				if(con.verificarTitularOperacion(id, nif.getText())==true) {
+					con.Ingresa(id, saldo);
+					con.Operar("Ingreso", saldo, id, nif.getText());
+				}
 			}
 		});
 		
@@ -142,6 +150,16 @@ public class operacion extends JFrame {
 		contentPane.add(btnRetirar);
 		btnTransferir.setBounds(335, 178, 89, 72);
 		contentPane.add(btnTransferir);
+		
+		JButton btnMenu = new JButton("menu");
+		btnMenu.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				setVisible(false);
+				new menu().setVisible(true);
+			}
+		});
+		btnMenu.setBounds(0, 259, 89, 23);
+		contentPane.add(btnMenu);
 		
 	}
 }
