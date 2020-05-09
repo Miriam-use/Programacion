@@ -26,11 +26,10 @@ public class Cuenta {
  * @param fecha
  * saldo inicial es 0
  */
-	public Cuenta(String nif, int num) {
+	public Cuenta(String nif, int num, int sald) {
 		this.num_Cuenta=num;
 		this.Fecha = new Date();
-		this.saldo=0;
-		this.nif.setNif(nif);
+		this.saldo=sald;
 	}
 /**
  * 	

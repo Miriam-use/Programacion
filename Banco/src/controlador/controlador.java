@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.sql.Statement;
 
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -429,55 +430,30 @@ public class controlador {
         }
 	}
 	
-	public Object[] TablaUsuario() {
+	public Object[] TablaUsuario(int n) {
 		Connection conn = null;
 		PreparedStatement prst = null;
 		ResultSet rs = null;
 		DefaultTableModel tablemodel = new DefaultTableModel();
 	    
 	  //se crea una matriz con tantas filas y columnas que necesite
-	    Object[] data = new String[7];
+		Object[] data = null;
 	    try{
 	          //realizamos la consulta sql y llenamos los datos en la matriz "Object[][] data"
 	    	conn = conx.conectar();
 			prst = conn.prepareStatement("SELECT * FROM usuario");
 	         ResultSet res = prst.executeQuery();
-	         while(res.next()){
-	                data[0] = res.getString(1);
-	                data[1] = res.getString(2);
-	                data[2] = res.getString(3);
-	                data[3] = res.getInt(4);
-	                data[4] = res.getString(5);
-	                data[5] = res.getString(6);
-	                data[6] = res.getInt(7);
-	           
+	        	 while(res.next()){
+	        		 data = new Object[n];
+	        		 for (int i = 0; i < n; i++) {
+						data[i]=res.getObject(i+1);
+					}		                
 	         }
-	         for(int i=0; i<7; i++) {
-	        	 System.out.println(data[i]);
-	         }
-	         res.close();
+		     res.close();
+	         return data;
 	         }catch(SQLException e){
 	        	 JOptionPane.showMessageDialog(null,"ERROR en la operacion "+e);
 	        }
 	    return data;
 	}
-	
-	public void mode() {
-		DefaultTableModel mode = new DefaultTableModel();
-		Connection conn = null;
-		PreparedStatement prst = null;
-		ResultSet rs = null;
-		try {
-			conn = conx.conectar();
-			prst = conn.prepareStatement("SELECT * FROM usuario");
-	         ResultSet res = prst.executeQuery();
-	         while(res.next()){
-	                mode.addRow(new Object[] {});
-	         }
-		}catch(Exception e){
-       	 JOptionPane.showMessageDialog(null,"ERROR en la operacion "+e);
-		}
-		
-	}
-	
 }

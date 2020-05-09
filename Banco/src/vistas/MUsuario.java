@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import controlador.controlador;
+import modelo.Usuario;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -15,9 +16,11 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.JScrollPane;
 
 public class MUsuario extends JFrame {
 
@@ -29,9 +32,12 @@ public class MUsuario extends JFrame {
 	private JTextField nom;
 	private JTextField apell;
 	private JTextField nif;
+	
+	//JScrollPane scrollPane;
 
 	controlador con=new controlador();
 	private JTable table;
+	//JTable table;
 	/**
 	 * Launch the application.
 	 */
@@ -167,10 +173,53 @@ public class MUsuario extends JFrame {
 		btnMenu.setBounds(366, 319, 89, 23);
 		contentPane.add(btnMenu);
 		
-		table = new JTable();
-		table.setBounds(10, 11, 435, 140);
-		contentPane.add(table);
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(10, 11, 435, 130);
+		contentPane.add(scrollPane);
 		
+		table = new JTable();
+		table.setModel(new DefaultTableModel(
+			new Object[][] {
+			},
+			new String[] {
+					"nif", "nombre", "apellido", "a\u00F1o", "direccion", "email", "telefono"
+			}
+		));
+		scrollPane.setViewportView(table);
+		int numColum = table.getModel().getColumnCount();
+		Object[] fila=new Object[numColum];
+		
+		((DefaultTableModel)table.getModel()).addRow(con.TablaUsuario(numColum));
 		
 	}
+
+	/*private void inicialComponentes() {
+		scrollPane = new JScrollPane();
+		scrollPane.setBounds(10, 11, 435, 130);
+		contentPane.add(scrollPane);
+	}
+
+	private void construirTabla() {
+		String[] titulo={"nif", "nombre", "apellido", "a\u00F1o", "direccion", "email", "telefono"};
+		String[][] dato=optener();
+		
+		table=new JTable(dato, titulo);
+		scrollPane.setViewportView(table);
+	}
+
+	private String[][] optener() {
+		ArrayList<Usuario>lista=con.TableUsuario();
+		String[][] dato = new String [lista.size()][7];
+		
+		for(int i=0; i<lista.size(); i++) {
+			dato[i][0]=lista.get(i).getNif()+"";
+			dato[i][1]=lista.get(i).getNombre()+"";
+			dato[i][2]=lista.get(i).getApellido()+"";
+			dato[i][3]=lista.get(i).getAño_nacimiento()+"";
+			dato[i][4]=lista.get(i).getDireccion()+"";
+			dato[i][5]=lista.get(i).getEmail()+"";
+			dato[i][6]=lista.get(i).getTelefono()+"";
+		}
+		return dato;
+	}*/
 }
