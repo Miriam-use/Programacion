@@ -19,7 +19,7 @@ public class conexion {
         try {
             Class.forName(CONTROLADOR);
             conexion = (Connection)DriverManager.getConnection(URL, USUARIO, CLAVE);
-            //JOptionPane.showMessageDialog(null,"Conexión OK");
+            JOptionPane.showMessageDialog(null,"Conexión OK");
 
         } catch (ClassNotFoundException e) {
         	JOptionPane.showMessageDialog(null,"Error al cargar el controlador");

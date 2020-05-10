@@ -10,30 +10,12 @@ public class main {
 
 	public static void main(String[] args) {
 		
-		menu men = new menu();
+		/*menu men = new menu();
 		men.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		men.setVisible(true);
+		men.setVisible(true);*/
 		
-		/*conexion c =new conexion();
+		conexion c =new conexion();
 		c.conectar();
-		
-		Operaciones op=new Operaciones();
-		if(op.Saldo(1, "12345678L")==true) {
-			if(op.IngresaRetira(1, 10, "12345678L")==true) {
-				System.out.println("operacion echa");
-			}else {
-				System.out.println("fallo 2");
-			}
-		}else {
-			System.out.println("fallo 1");
-		}*/
-		
-		
-		//controlador con=new controlador();
-		
-		
-		
-		
 	}
 
 }
