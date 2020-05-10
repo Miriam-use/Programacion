@@ -409,7 +409,14 @@ public class controlador {
         }	
 	}
 	
-	
+/**
+ * 	
+ * @param tipo
+ * @param cantidad
+ * @param id
+ * @param nif
+ * @return true
+ */
 	public boolean Operar(String tipo,  int cantidad, int id, String nif) {
 		Connection conn = null;
         PreparedStatement prst = null;
@@ -430,30 +437,131 @@ public class controlador {
         }
 	}
 	
-	public Object[] TablaUsuario(int n) {
-		Connection conn = null;
-		PreparedStatement prst = null;
-		ResultSet rs = null;
-		DefaultTableModel tablemodel = new DefaultTableModel();
-	    
-	  //se crea una matriz con tantas filas y columnas que necesite
-		Object[] data = null;
-	    try{
-	          //realizamos la consulta sql y llenamos los datos en la matriz "Object[][] data"
-	    	conn = conx.conectar();
-			prst = conn.prepareStatement("SELECT * FROM usuario");
-	         ResultSet res = prst.executeQuery();
-	        	 while(res.next()){
-	        		 data = new Object[n];
-	        		 for (int i = 0; i < n; i++) {
-						data[i]=res.getObject(i+1);
-					}		                
-	         }
-		     res.close();
-	         return data;
-	         }catch(SQLException e){
-	        	 JOptionPane.showMessageDialog(null,"ERROR en la operacion "+e);
-	        }
-	    return data;
+	
+	DefaultTableModel modelotabla;
+/**
+ * 
+ * @param valor
+ * @param opcion
+ * @param table
+ */
+	public void Ubuscar(String valor, String  opcion, JTable table) {
+		String[] columna = {"nif", "nombre", "apellido", "a\u00F1o", "direccion", "email", "telefono"};
+		String[] registro= new String[7];
+		modelotabla = new DefaultTableModel(null, columna);
+		String ssql = null;
+		Connection conect = null;
+		
+		if(opcion.equals("nif")) {
+			ssql="SELECT nif, nombre, apellido, anio_nacimiento, direccion, email, telefono FROM usuario WHERE nif='"+valor+"'";
+		}else {
+			if(opcion.equals("nombre")) {
+				ssql="SELECT nif, nombre, apellido, anio_nacimiento, direccion, email, telefono FROM usuario WHERE nombre='"+valor+"'";
+			}else {
+				if(opcion.equals("apellido")) {
+					ssql="SELECT nif, nombre, apellido, anio_nacimiento, direccion, email, telefono FROM usuario WHERE apellido='"+valor+"'";
+				}else {
+					ssql="SELECT nif, nombre, apellido, anio_nacimiento, direccion, email, telefono FROM usuario WHERE direccion='"+valor+"'";
+				}
+			}
+		}
+		
+		try {
+			conect=conx.conectar();
+			PreparedStatement st = conect.prepareStatement(ssql);
+			ResultSet rs = st.executeQuery();
+			
+			while(rs.next()) {
+				registro[0]=rs.getString("nif");
+				registro[1]=rs.getString("nombre");
+				registro[2]=rs.getString("apellido");
+				registro[3]=rs.getString("anio_nacimiento");
+				registro[4]=rs.getString("direccion");
+				registro[5]=rs.getString("email");
+				registro[6]=rs.getString("telefono");
+				
+				modelotabla.addRow(registro);
+			}
+			
+			table.setModel(modelotabla);
+			
+		}catch (SQLException e) {
+			JOptionPane.showMessageDialog(null,"ERROR en la operacion "+e);
+		}finally {
+			conx.close(null);
+		}
+	}
+	
+	
+/**
+ * 
+ * @param valor
+ * @param opcion
+ * @param table
+ */
+	public void buscarOperacion(String valor, JTable table) {
+		String[] columna = {"num operacion", "tipo", "fecha de operacion", "cantidad", "num cuenta", "titular"};
+		String[] registro= new String[6];
+		modelotabla = new DefaultTableModel(null, columna);
+		String ssql = "SELECT n_operacion, tipo, fecha_operacion, cantidad, n_cuenta, nif_usuario FROM operaciones WHERE n_cuenta='"+valor+"'";
+		Connection conect = null;
+				
+		try {
+			conect=conx.conectar();
+			PreparedStatement st = conect.prepareStatement(ssql);
+			ResultSet rs = st.executeQuery();
+			
+			while(rs.next()) {
+				registro[0]=rs.getString("n_operacion");
+				registro[1]=rs.getString("tipo");
+				registro[2]=rs.getString("fecha_operacion");
+				registro[3]=rs.getString("cantidad");
+				registro[4]=rs.getString("n_cuenta");
+				registro[5]=rs.getString("nif_usuario");
+				
+				modelotabla.addRow(registro);
+			}
+			
+			table.setModel(modelotabla);
+			
+		}catch (SQLException e) {
+			JOptionPane.showMessageDialog(null,"ERROR en la operacion "+e);
+		}finally {
+			conx.close(null);
+		}
+	}
+/**
+ * 	
+ * @param valor
+ * @param opcion
+ * @param table
+ */
+	public void buscarCuenta(String valor, JTable table) {
+		String[] columna = {"numero cuenta", "fecha creacion", "saldo"};
+		String[] registro= new String[3];
+		modelotabla = new DefaultTableModel(null, columna);
+		String ssql = ssql="SELECT n_cuenta, fecha_creacion, saldo FROM cuenta WHERE n_cuenta='"+valor+"'";
+		Connection conect = null;
+		
+		try {
+			conect=conx.conectar();
+			PreparedStatement st = conect.prepareStatement(ssql);
+			ResultSet rs = st.executeQuery();
+			
+			while(rs.next()) {
+				registro[0]=rs.getString("n_cuenta");
+				registro[1]=rs.getString("fecha_creacion");
+				registro[2]=rs.getString("saldo");
+				
+				modelotabla.addRow(registro);
+			}
+			
+			table.setModel(modelotabla);
+			
+		}catch (SQLException e) {
+			JOptionPane.showMessageDialog(null,"ERROR en la operacion "+e);
+		}finally {
+			conx.close(null);
+		}
 	}
 }

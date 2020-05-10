@@ -21,6 +21,9 @@ import java.awt.event.ActionEvent;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JScrollPane;
+import javax.swing.JComboBox;
+import javax.swing.ComboBoxEditor;
+import javax.swing.DefaultComboBoxModel;
 
 public class MUsuario extends JFrame {
 
@@ -37,6 +40,7 @@ public class MUsuario extends JFrame {
 
 	controlador con=new controlador();
 	private JTable table;
+	private JTextField valor;
 	//JTable table;
 	/**
 	 * Launch the application.
@@ -59,7 +63,7 @@ public class MUsuario extends JFrame {
 	 */
 	public MUsuario() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 471, 381);
+		setBounds(100, 100, 471, 445);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -139,7 +143,7 @@ public class MUsuario extends JFrame {
 				
 			}
 		});
-		btnAadir.setBounds(20, 264, 98, 38);
+		btnAadir.setBounds(10, 264, 98, 38);
 		contentPane.add(btnAadir);
 		
 		JButton btnEliminar = new JButton("Eliminar");
@@ -148,7 +152,7 @@ public class MUsuario extends JFrame {
 				con.eliminarUsuario(nif.getText());
 			}
 		});
-		btnEliminar.setBounds(187, 264, 98, 38);
+		btnEliminar.setBounds(176, 264, 98, 38);
 		contentPane.add(btnEliminar);
 		
 		JButton btnModificar = new JButton("Modificar");
@@ -170,12 +174,31 @@ public class MUsuario extends JFrame {
 				new menu().setVisible(true);
 			}
 		});
-		btnMenu.setBounds(366, 319, 89, 23);
+		btnMenu.setBounds(366, 383, 89, 23);
 		contentPane.add(btnMenu);
 		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 11, 435, 130);
-		contentPane.add(scrollPane);
+		JComboBox comboBox = new JComboBox();
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"nif", "nombre", "apellido", "direccion"}));
+		comboBox.setBounds(140, 342, 113, 20);
+		contentPane.add(comboBox);
+		
+		JButton btnNewButton = new JButton("Buscar");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				con.Ubuscar(valor.getText(), comboBox.getSelectedItem().toString(), table);
+			}
+		});
+		
+		JLabel lblBuscarPor = new JLabel("buscar por:");
+		lblBuscarPor.setBounds(138, 317, 100, 14);
+		contentPane.add(lblBuscarPor);
+					
+		valor = new JTextField();
+		valor.setBounds(276, 342, 169, 20);
+		contentPane.add(valor);
+		valor.setColumns(10);
+		btnNewButton.setBounds(10, 324, 98, 38);
+		contentPane.add(btnNewButton);
 		
 		table = new JTable();
 		table.setModel(new DefaultTableModel(
@@ -185,41 +208,8 @@ public class MUsuario extends JFrame {
 					"nif", "nombre", "apellido", "a\u00F1o", "direccion", "email", "telefono"
 			}
 		));
-		scrollPane.setViewportView(table);
-		int numColum = table.getModel().getColumnCount();
-		Object[] fila=new Object[numColum];
-		
-		((DefaultTableModel)table.getModel()).addRow(con.TablaUsuario(numColum));
+		table.setBounds(10, 11, 435, 126);
+		contentPane.add(table);
 		
 	}
-
-	/*private void inicialComponentes() {
-		scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 11, 435, 130);
-		contentPane.add(scrollPane);
-	}
-
-	private void construirTabla() {
-		String[] titulo={"nif", "nombre", "apellido", "a\u00F1o", "direccion", "email", "telefono"};
-		String[][] dato=optener();
-		
-		table=new JTable(dato, titulo);
-		scrollPane.setViewportView(table);
-	}
-
-	private String[][] optener() {
-		ArrayList<Usuario>lista=con.TableUsuario();
-		String[][] dato = new String [lista.size()][7];
-		
-		for(int i=0; i<lista.size(); i++) {
-			dato[i][0]=lista.get(i).getNif()+"";
-			dato[i][1]=lista.get(i).getNombre()+"";
-			dato[i][2]=lista.get(i).getApellido()+"";
-			dato[i][3]=lista.get(i).getAño_nacimiento()+"";
-			dato[i][4]=lista.get(i).getDireccion()+"";
-			dato[i][5]=lista.get(i).getEmail()+"";
-			dato[i][6]=lista.get(i).getTelefono()+"";
-		}
-		return dato;
-	}*/
 }

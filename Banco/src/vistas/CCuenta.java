@@ -13,15 +13,21 @@ import javax.swing.JList;
 import javax.swing.JTable;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.table.DefaultTableModel;
+
+import controlador.controlador;
 
 public class CCuenta extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField numcuenta;
-	private JTextField nif;
-	private JTextField fechacrea;
-	private JTable table;
+	private JTable cuenta;
+	private JTable operacion;
 
+	controlador con = new controlador();
+	
 	/**
 	 * Launch the application.
 	 */
@@ -43,40 +49,37 @@ public class CCuenta extends JFrame {
 	 */
 	public CCuenta() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 347);
+		setBounds(100, 100, 450, 428);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblNCuenta = new JLabel("n\u00BA Cuenta");
-		lblNCuenta.setBounds(10, 11, 75, 14);
+		lblNCuenta.setBounds(251, 11, 75, 14);
 		contentPane.add(lblNCuenta);
 		
 		numcuenta = new JTextField();
-		numcuenta.setBounds(20, 30, 86, 20);
+		numcuenta.setBounds(277, 33, 129, 20);
 		contentPane.add(numcuenta);
 		numcuenta.setColumns(10);
 		
-		JLabel lblNifDeUsuario = new JLabel("NIF de Usuario");
-		lblNifDeUsuario.setBounds(10, 61, 106, 14);
-		contentPane.add(lblNifDeUsuario);
+		JComboBox comboBox = new JComboBox();
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"cuenta", "operaciones"}));
+		comboBox.setBounds(33, 33, 152, 20);
+		contentPane.add(comboBox);
 		
-		nif = new JTextField();
-		nif.setBounds(20, 76, 136, 20);
-		contentPane.add(nif);
-		nif.setColumns(10);
-		
-		JLabel lblFechaDeCreacion = new JLabel("Fecha de creacion");
-		lblFechaDeCreacion.setBounds(178, 11, 115, 14);
-		contentPane.add(lblFechaDeCreacion);
-		
-		fechacrea = new JTextField();
-		fechacrea.setBounds(188, 30, 142, 20);
-		contentPane.add(fechacrea);
-		fechacrea.setColumns(10);
-		
-		JButton btnListar = new JButton("Listar");
+		JButton btnListar = new JButton("Buscar");
+		btnListar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				String opcion=comboBox.getSelectedItem().toString();
+				if(opcion.equals("cuenta")) {
+					con.buscarCuenta(numcuenta.getText(), cuenta);
+				}else {
+					con.buscarOperacion(numcuenta.getText(), operacion);
+				}
+			}
+		});
 		btnListar.setBounds(312, 75, 86, 36);
 		contentPane.add(btnListar);
 		
@@ -87,11 +90,43 @@ public class CCuenta extends JFrame {
 				new menu().setVisible(true);
 			}
 		});
-		btnMenu.setBounds(345, 285, 89, 23);
+		btnMenu.setBounds(345, 366, 89, 23);
 		contentPane.add(btnMenu);
 		
-		table = new JTable();
-		table.setBounds(10, 133, 414, 142);
-		contentPane.add(table);
+		cuenta = new JTable();
+		cuenta.setModel(new DefaultTableModel(
+			new Object[][] {
+			},
+			new String[] {
+				"numero cuenta", "fecha creacion", "saldo"
+			}
+		));
+		cuenta.setBounds(10, 150, 414, 77);
+		contentPane.add(cuenta);
+		
+		JLabel lblBuscarPor = new JLabel("buscar por:");
+		lblBuscarPor.setBounds(23, 11, 98, 14);
+		contentPane.add(lblBuscarPor);
+		
+		operacion = new JTable();
+		operacion.setModel(new DefaultTableModel(
+			new Object[][] {
+			},
+			new String[] {
+				"num operacion", "tipo", "fecha de operacion", "cantidad", "num cuenta", "titular"
+			}
+		));
+		operacion.setBounds(10, 263, 414, 77);
+		contentPane.add(operacion);
+		
+		JLabel lblCuenta = new JLabel("Cuenta:");
+		lblCuenta.setBounds(10, 125, 75, 14);
+		contentPane.add(lblCuenta);
+		
+		JLabel lblOperacciones = new JLabel("Operacciones:");
+		lblOperacciones.setBounds(10, 238, 98, 14);
+		contentPane.add(lblOperacciones);
+		
+		
 	}
 }
