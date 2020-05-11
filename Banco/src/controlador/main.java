@@ -10,12 +10,12 @@ public class main {
 
 	public static void main(String[] args) {
 		
-		/*menu men = new menu();
+		menu men = new menu();
 		men.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		men.setVisible(true);*/
+		men.setVisible(true);
 		
-		conexion c =new conexion();
-		c.conectar();
+		//conexion c =new conexion();
+		//c.conectar();
 	}
 
 }

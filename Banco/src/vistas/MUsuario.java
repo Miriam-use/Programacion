@@ -62,6 +62,7 @@ public class MUsuario extends JFrame {
 	 * Create the frame.
 	 */
 	public MUsuario() {
+		setTitle("US-CAJA/mantenimiento-usuario");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 471, 445);
 		contentPane = new JPanel();

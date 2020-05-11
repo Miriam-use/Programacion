@@ -48,6 +48,7 @@ public class CCuenta extends JFrame {
 	 * Create the frame.
 	 */
 	public CCuenta() {
+		setTitle("US-CAJA/consultar-cuenta-operaciones");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 428);
 		contentPane = new JPanel();
