@@ -217,9 +217,9 @@ public class controlador {
         }
 	}
 /**
- * 	
- * @param nif
- * @return true Nueva cuenta creada
+ * 
+ * @param id
+ * @return true
  */
 	
 	public boolean crearCuenta(int id) {
@@ -327,11 +327,10 @@ public class controlador {
         }
 	}
 /**
- * 	
+ * 
  * @param id
  * @param cantidad
- * @param dni
- * @return true ingresar saldo
+ * @return true
  */
 	
 	public boolean Ingresa(int id, int cantidad) {
@@ -356,11 +355,10 @@ public class controlador {
         }		
 	}
 /**
- * 	
+ * 
  * @param id
  * @param cantidad
- * @param dni
- * @return true retirar saldo
+ * @return true
  */
 	public boolean Retirada(int id, int cantidad) {
 		Connection conn = null;
@@ -496,7 +494,6 @@ public class controlador {
 /**
  * 
  * @param valor
- * @param opcion
  * @param table
  */
 	public void buscarOperacion(String valor, JTable table) {
@@ -531,9 +528,8 @@ public class controlador {
 		}
 	}
 /**
- * 	
+ * 
  * @param valor
- * @param opcion
  * @param table
  */
 	public void buscarCuenta(String valor, JTable table) {

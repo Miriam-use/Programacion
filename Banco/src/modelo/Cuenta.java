@@ -21,10 +21,10 @@ public class Cuenta {
 		
 	}
 /**
- * 	
+ * 
+ * @param nif
  * @param num
- * @param fecha
- * saldo inicial es 0
+ * @param sald = 0
  */
 	public Cuenta(String nif, int num, int sald) {
 		this.num_Cuenta=num;
