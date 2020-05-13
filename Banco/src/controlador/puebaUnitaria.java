@@ -5,9 +5,11 @@ import static org.junit.Assume.assumeTrue;
 
 import org.junit.Test;
 
+import modelo.Modelo;
+
 public class puebaUnitaria {
 
-	private controlador con=new controlador();
+	private Modelo con=new Modelo();
 	
 	@Test
 	public void Crear() {

@@ -39,6 +39,7 @@ public class MUsuario extends JFrame {
 	//JScrollPane scrollPane;
 
 	controlador con=new controlador();
+	Usuario us = new Usuario();
 	private JTable table;
 	private JTextField valor;
 	//JTable table;
@@ -138,8 +139,10 @@ public class MUsuario extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				int ani=Integer.parseInt(anio.getText());
 				int t=Integer.parseInt(tlf.getText());
-				if(con.verificarUsuario(nif.getText())==false) {
-					con.crearUsuario(nom.getText(), apell.getText(), nif.getText(), direc.getText(), ani, t, email.getText());
+				if(con.validarNIF(nif.getText())==true) {
+					if(con.verificarUsuario(nif.getText())==false) {
+						con.crearUsuario(nom.getText(), apell.getText(), nif.getText(), direc.getText(), ani, t, email.getText());
+					}
 				}
 				
 			}

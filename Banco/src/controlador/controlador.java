@@ -17,6 +17,7 @@ import org.junit.Test;
 import controlador.conexion;
 import modelo.Cuenta;
 import modelo.Usuario;
+import modelo.Modelo;
 /**
  * 
  * @author Miriam
@@ -29,6 +30,8 @@ public class controlador {
 	private DefaultTableModel dt;
 	private PreparedStatement ps;
 	private ResultSet rs;
+	Modelo m = new Modelo();
+	Usuario us = new Usuario();
 	
 /**
  * 	
@@ -36,30 +39,11 @@ public class controlador {
  * @return true si el usuario ya se encuentra y false si el usuario no existe
  */
 	public boolean verificarUsuario(String nif) {
-		Connection conn = null;
-        PreparedStatement prst = null;
-        ResultSet rs = null;
-        ResultSet rows;
-        String nueus="SELECT nif FROM usuario WHERE nif='"+nif+"'";
-        try {
-			conn = conx.conectar();
-			prst = conn.prepareStatement(nueus);
-            rows = prst.executeQuery();
-            if(rows.next()){
-            	JOptionPane.showMessageDialog(null,"El Usuario ya existe");
-            	return true;
-            } else {
-            	return false;
-            }            
-			
-        }catch (SQLException e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(null,"ERROR en la operacion"); 
-            return true;
-        } finally {
-            conx.close(conn);
-        }
-		
+		if(m.verificarUsuario(nif)==true) {
+			return true;
+		}else {
+			return false;
+		}
 	}
 /**
  * 	
@@ -67,121 +51,47 @@ public class controlador {
  * @return true si el usuario ya se encuentra y false si el usuario no existe
  */	
 	public boolean verificarCuenta(String nif) {
-		Connection conn = null;
-        PreparedStatement prst = null;
-        ResultSet rs = null;
-        ResultSet rows;
-        String nueus="SELECT nif FROM usuario WHERE nif='"+nif+"'";
-        try {
-			conn = conx.conectar();
-			prst = conn.prepareStatement(nueus);
-            rows = prst.executeQuery();
-            if(rows.next()){
-            	
-            	return true;
-            } else {
-            	JOptionPane.showMessageDialog(null,"El Usuario no existe");
-            	return false;
-            }            
-			
-        }catch (SQLException e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(null,"ERROR en la operacion"); 
-            return false;
-        } finally {
-            conx.close(conn);
-        }
-		
+		if(m.verificarCuenta(nif)==true) {
+			return true;
+		}else {
+			return false;
+		}		
 	}
-	
+/**
+ * 	
+ * @param id
+ * @return true
+ */
 	public boolean verificarTitular(int id) {
-		Connection conn = null;
-        PreparedStatement prst = null;
-        ResultSet rs = null;
-        ResultSet rows;
-        String nueus="SELECT n_cuenta FROM titular WHERE n_cuenta='"+id+"'";
-        try {
-			conn = conx.conectar();
-			prst = conn.prepareStatement(nueus);
-            rows = prst.executeQuery();
-            if(rows.next()){
-            	return true;
-            } else {
-            	return false;
-            }            
-			
-        }catch (SQLException e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(null,"ERROR en la operacion"); 
-            return false;
-        } finally {
-            conx.close(conn);
-        }	
+		if(m.verificarTitular(id)==true) {
+			return true;
+		}else {
+			return false;
+		}	
 	}	
 	
 	public boolean verificarTitularOperacion(int id, String nif) {
-		Connection conn = null;
-        PreparedStatement prst = null;
-        ResultSet rs = null;
-        ResultSet rows;
-        String nueus="SELECT n_cuenta FROM titular WHERE n_cuenta='"+id+"' AND nif_usuario='"+nif+"'";
-        try {
-			conn = conx.conectar();
-			prst = conn.prepareStatement(nueus);
-            rows = prst.executeQuery();
-            if(rows.next()){
-            	return true;
-            } else {
-            	return false;
-            }            
-			
-        }catch (SQLException e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(null,"ERROR en la operacion"); 
-            return false;
-        } finally {
-            conx.close(conn);
-        }	
+		if(m.verificarTitularOperacion(id, nif)==true) {
+			return true;
+		}else {
+			return false;
+		}	
 	}	
 	
 	public boolean eliminarTitular(int id, String nif) {
-		Connection conn = null;
-        PreparedStatement prst = null;
-        ResultSet rs = null;
-        int rows = 0; //registros afectados
-        String nueus="DELETE FROM titular WHERE n_cuenta='"+id+"' AND nif_usuario='"+nif+"'";
-        try {
-			conn = conx.conectar();
-			prst = conn.prepareStatement(nueus);
-			rows = prst.executeUpdate();//registros afectados         
+		if(m.eliminarTitular(id, nif)==true) {
 			return true;
-        }catch (SQLException e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(null,"ERROR en la operacion"); 
-            return false;
-        } finally {
-            conx.close(conn);
-        }
+		}else {
+			return false;
+		}
 	}
 	
 	public boolean nuevoTitular(int id, String nif) {
-		Connection conn = null;
-        PreparedStatement prst = null;
-        ResultSet rs = null;
-        int rows = 0; //registros afectados
-        String nueus="INSERT INTO titular (n_titular, n_cuenta, nif_usuario) VALUES (NULL, '"+id+"', '"+nif+"')";
-        try {
-			conn = conx.conectar();
-			prst = conn.prepareStatement(nueus);
-			rows = prst.executeUpdate();//registros afectados   
+		if(m.nuevoTitular(id, nif)==true) {
 			return true;
-        }catch (SQLException e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(null,"ERROR en la operacion"); 
-            return false;
-        } finally {
-            conx.close(conn);
-        }
+		}else {
+			return false;
+		}
 	}
 /**
  * 	
@@ -196,25 +106,11 @@ public class controlador {
  */
 	
 	public boolean crearUsuario(String nom, String apll, String nif, String dirc, int anio, int telf, String ema) {
-		Connection conn = null;
-        PreparedStatement prst = null;
-        ResultSet rs = null;
-        int rows = 0; //registros afectados
-        String nueus="INSERT INTO usuario (nif, nombre, apellido, anio_nacimiento, direccion, email, telefono) VALUES ('"+nif+"', '"
-        		+nom+"', '"+apll+"', '"+anio+"', '"+dirc+"', '"+ema+"', '"+telf+"')";
-        try {
-			conn = conx.conectar();
-			prst = conn.prepareStatement(nueus);
-            rows = prst.executeUpdate();//registros afectados
-            JOptionPane.showMessageDialog(null,"Nuevo usuario creado");
+		if(m.crearUsuario(nom, apll, nif, dirc, anio, telf, ema)==true) {
 			return true;
-        }catch (SQLException e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(null,"ERROR en la operacion");
-            return false;
-        } finally {
-            conx.close(conn);
-        }
+		}else {
+			return false;
+		}
 	}
 /**
  * 
@@ -223,24 +119,11 @@ public class controlador {
  */
 	
 	public boolean crearCuenta(int id) {
-		Connection conn = null;
-        PreparedStatement prst = null;
-        ResultSet rs = null;
-        int rows = 0; //registros afectados
-        String nueus="INSERT INTO cuenta (n_cuenta, fecha_creacion, saldo) VALUES ('"+id+"', CURRENT_TIMESTAMP, '0')";
-        try {
-			conn = conx.conectar();
-			prst = conn.prepareStatement(nueus);
-            rows = prst.executeUpdate();//registros afectados
-            JOptionPane.showMessageDialog(null,"Nueva cuenta creado");
+		if(m.crearCuenta(id)==true) {
 			return true;
-        }catch (SQLException e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(null,"ERROR en la operacion");
-            return false;
-        } finally {
-            conexion.close(conn);
-        }
+		}else {
+			return false;
+		}
 	}
 /**
  * 	
@@ -249,24 +132,11 @@ public class controlador {
  */
 	
 	public boolean eliminarUsuario(String nif) {
-		Connection conn = null;
-        PreparedStatement prst = null;
-        ResultSet rs = null;
-        int rows = 0; //registros afectados
-        String nueus="DELETE FROM usuario WHERE nif='"+nif+"'";
-        try {
-			conn = conx.conectar();
-			prst = conn.prepareStatement(nueus);
-            rows = prst.executeUpdate();//registros afectados
-            JOptionPane.showMessageDialog(null,"El usuario '"+nif+"' a sido eliminado correctamente");
+		if(m.eliminarUsuario(nif)==true) {
 			return true;
-        }catch (SQLException e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(null,"ERROR en la operacion");
-            return false;
-        } finally {
-            conexion.close(conn);
-        }
+		}else {
+			return false;
+		}
 	}
 /**
  * 
@@ -275,24 +145,11 @@ public class controlador {
  * @return true cuenta borrada
  */
 	public boolean eliminarCuenta(int id, String nif) {
-		Connection conn = null;
-        PreparedStatement prst = null;
-        ResultSet rs = null;
-        int rows = 0; //registros afectados
-        String nueus="DELETE FROM cuenta WHERE n_cuenta='"+id+"'";
-        try {
-			conn = conx.conectar();
-			prst = conn.prepareStatement(nueus);
-            rows = prst.executeUpdate();//registros afectados
-            JOptionPane.showMessageDialog(null,"La cuenta "+id+" del usuario '"+nif+"' se a eliminado");
+		if(m.eliminarCuenta(id, nif)==true) {
 			return true;
-        }catch (SQLException e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(null,"ERROR en la operacion");
-            return false;
-        } finally {
-            conexion.close(conn);
-        }
+		}else {
+			return false;
+		}
 	}
 /**
  * 	
@@ -306,25 +163,11 @@ public class controlador {
  * @return true operacion realizada con exito
  */
 	public boolean modificarUsuario(String nom, String apll, String nif, String dirc, int anio, int telf, String ema) {
-		Connection conn = null;
-        PreparedStatement prst = null;
-        ResultSet rs = null;
-        int rows = 0; //registros afectados
-        String nueus="UPDATE usuario SET nombre='"+nom+"', apellido='"+apll+"', anio_nacimiento='"+anio+"', direccion='"+dirc+"', email='"+ema
-        			+"', telefono='"+telf+"' WHERE nif='"+nif+"'";
-        try {
-			conn = conx.conectar();
-			prst = conn.prepareStatement(nueus);
-            rows = prst.executeUpdate();//registros afectados
-            JOptionPane.showMessageDialog(null,"Operacion realizada con exito");
+		if(m.modificarUsuario(nom, apll, nif, dirc, anio, telf, ema)==true) {
 			return true;
-        }catch (SQLException e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(null,"ERROR en la operacion");
-            return false;
-        } finally {
-            conexion.close(conn);
-        }
+		}else {
+			return false;
+		}
 	}
 /**
  * 
@@ -334,25 +177,11 @@ public class controlador {
  */
 	
 	public boolean Ingresa(int id, int cantidad) {
-		Connection conn = null;
-		PreparedStatement prst = null;
-		ResultSet rs = null;
-		
-		int rows = 0; //registros afectados
-		String ing="UPDATE cuenta SET saldo=(saldo+"+cantidad+") WHERE n_cuenta='"+id+"'";
-		try {
-			conn = conx.conectar();
-			prst = conn.prepareStatement(ing);
-			rows = prst.executeUpdate();//registros afectados
-			JOptionPane.showMessageDialog(null,"Ingreso Realizaso");
+		if(m.Ingresa(id, cantidad)==true) {
 			return true;
-		}catch (SQLException e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(null,"Ingreso Fallido");
-            return false;
-		}finally {
-            conexion.close(conn);
-        }		
+		}else {
+			return false;
+		}		
 	}
 /**
  * 
@@ -361,24 +190,11 @@ public class controlador {
  * @return true
  */
 	public boolean Retirada(int id, int cantidad) {
-		Connection conn = null;
-		PreparedStatement prst = null;
-		ResultSet rs = null;
-		int rows = 0; //registros afectados
-		String ing="UPDATE cuenta SET saldo=(saldo-"+cantidad+") WHERE n_cuenta='"+id+"'";
-		try {
-			conn = conx.conectar();
-			prst = conn.prepareStatement(ing);
-			rows = prst.executeUpdate();//registros afectados
-			JOptionPane.showMessageDialog(null,"Retirada Realizada");
+		if(m.Retirada(id, cantidad)==true) {
 			return true;
-		}catch (SQLException e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(null,"Retirada Fallida");
-            return false;
-		}finally {
-            conexion.close(conn);
-        }		
+		}else {
+			return false;
+		}		
 	}
 /**
  * 	
@@ -387,24 +203,11 @@ public class controlador {
  * @return true Transaccion Realizada
  */
 	public boolean Transferir(int id2, int cantidad) {
-		Connection conn = null;
-		PreparedStatement prst = null;
-		ResultSet rs = null;
-		int rows = 0; //registros afectados
-		String ing="UPDATE cuenta SET saldo=(saldo+"+cantidad+") WHERE n_cuenta='"+id2+"'";
-		try {
-			conn = conx.conectar();
-			prst = conn.prepareStatement(ing);
-			rows = prst.executeUpdate();//registros afectados
-			JOptionPane.showMessageDialog(null,"Transaccion Realizada");
+		if(m.Transferir(id2, cantidad)==true) {
 			return true;
-		}catch (SQLException e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(null,"Transaccion Erronea");
-            return false;
-		}finally {
-            conexion.close(conn);
-        }	
+		}else {
+			return false;
+		}	
 	}
 	
 /**
@@ -416,23 +219,11 @@ public class controlador {
  * @return true
  */
 	public boolean Operar(String tipo,  int cantidad, int id, String nif) {
-		Connection conn = null;
-        PreparedStatement prst = null;
-        ResultSet rs = null;
-        int rows = 0; //registros afectados
-        String nueus="INSERT INTO operaciones (n_operacion, tipo, fecha_operacion, cantidad, n_cuenta, nif_usuario) VALUES (NULL, '"+tipo+"', CURRENT_TIMESTAMP, '"+cantidad+"', '"+id+"', '"+nif+"')";
-        try {
-			conn = conx.conectar();
-			prst = conn.prepareStatement(nueus);
-            rows = prst.executeUpdate();//registros afectados
+		if(m.Operar(tipo, cantidad, id, nif)==true) {
 			return true;
-        }catch (SQLException e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(null,"ERROR en la operacion");
-            return false;
-        } finally {
-            conx.close(conn);
-        }
+		}else {
+			return false;
+		}
 	}
 	
 	
@@ -444,52 +235,8 @@ public class controlador {
  * @param table
  */
 	public void Ubuscar(String valor, String  opcion, JTable table) {
-		String[] columna = {"nif", "nombre", "apellido", "a\u00F1o", "direccion", "email", "telefono"};
-		String[] registro= new String[7];
-		modelotabla = new DefaultTableModel(null, columna);
-		String ssql = null;
-		Connection conect = null;
-		
-		if(opcion.equals("nif")) {
-			ssql="SELECT nif, nombre, apellido, anio_nacimiento, direccion, email, telefono FROM usuario WHERE nif='"+valor+"'";
-		}else {
-			if(opcion.equals("nombre")) {
-				ssql="SELECT nif, nombre, apellido, anio_nacimiento, direccion, email, telefono FROM usuario WHERE nombre='"+valor+"'";
-			}else {
-				if(opcion.equals("apellido")) {
-					ssql="SELECT nif, nombre, apellido, anio_nacimiento, direccion, email, telefono FROM usuario WHERE apellido='"+valor+"'";
-				}else {
-					ssql="SELECT nif, nombre, apellido, anio_nacimiento, direccion, email, telefono FROM usuario WHERE direccion='"+valor+"'";
-				}
-			}
-		}
-		
-		try {
-			conect=conx.conectar();
-			PreparedStatement st = conect.prepareStatement(ssql);
-			ResultSet rs = st.executeQuery();
-			
-			while(rs.next()) {
-				registro[0]=rs.getString("nif");
-				registro[1]=rs.getString("nombre");
-				registro[2]=rs.getString("apellido");
-				registro[3]=rs.getString("anio_nacimiento");
-				registro[4]=rs.getString("direccion");
-				registro[5]=rs.getString("email");
-				registro[6]=rs.getString("telefono");
-				
-				modelotabla.addRow(registro);
-			}
-			
-			table.setModel(modelotabla);
-			
-		}catch (SQLException e) {
-			JOptionPane.showMessageDialog(null,"ERROR en la operacion "+e);
-		}finally {
-			conx.close(null);
-		}
+		m.Ubuscar(valor, opcion, table);
 	}
-	
 	
 /**
  * 
@@ -497,35 +244,7 @@ public class controlador {
  * @param table
  */
 	public void buscarOperacion(String valor, JTable table) {
-		String[] columna = {"num operacion", "tipo", "fecha de operacion", "cantidad", "num cuenta", "titular"};
-		String[] registro= new String[6];
-		modelotabla = new DefaultTableModel(null, columna);
-		String ssql = "SELECT n_operacion, tipo, fecha_operacion, cantidad, n_cuenta, nif_usuario FROM operaciones WHERE n_cuenta='"+valor+"'";
-		Connection conect = null;
-				
-		try {
-			conect=conx.conectar();
-			PreparedStatement st = conect.prepareStatement(ssql);
-			ResultSet rs = st.executeQuery();
-			
-			while(rs.next()) {
-				registro[0]=rs.getString("n_operacion");
-				registro[1]=rs.getString("tipo");
-				registro[2]=rs.getString("fecha_operacion");
-				registro[3]=rs.getString("cantidad");
-				registro[4]=rs.getString("n_cuenta");
-				registro[5]=rs.getString("nif_usuario");
-				
-				modelotabla.addRow(registro);
-			}
-			
-			table.setModel(modelotabla);
-			
-		}catch (SQLException e) {
-			JOptionPane.showMessageDialog(null,"ERROR en la operacion "+e);
-		}finally {
-			conx.close(null);
-		}
+		m.buscarOperacion(valor, table);
 	}
 /**
  * 
@@ -533,31 +252,31 @@ public class controlador {
  * @param table
  */
 	public void buscarCuenta(String valor, JTable table) {
-		String[] columna = {"numero cuenta", "fecha creacion", "saldo"};
-		String[] registro= new String[3];
-		modelotabla = new DefaultTableModel(null, columna);
-		String ssql = ssql="SELECT n_cuenta, fecha_creacion, saldo FROM cuenta WHERE n_cuenta='"+valor+"'";
-		Connection conect = null;
-		
-		try {
-			conect=conx.conectar();
-			PreparedStatement st = conect.prepareStatement(ssql);
-			ResultSet rs = st.executeQuery();
-			
-			while(rs.next()) {
-				registro[0]=rs.getString("n_cuenta");
-				registro[1]=rs.getString("fecha_creacion");
-				registro[2]=rs.getString("saldo");
-				
-				modelotabla.addRow(registro);
-			}
-			
-			table.setModel(modelotabla);
-			
-		}catch (SQLException e) {
-			JOptionPane.showMessageDialog(null,"ERROR en la operacion "+e);
-		}finally {
-			conx.close(null);
+		m.buscarCuenta(valor, table);
+	}
+/**
+ * 	
+ * @param nif
+ * @return true si es valido
+ */
+	public boolean validarNIF(String nif) {
+		if(us.validarNIF(nif)==true) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+/**
+ * 	
+ * @param cantidad
+ * @param id
+ * @return true si es negativo y false si es positivo
+ */
+	public boolean comprovarsaldo(int cantidad, int id) {
+		if(m.comprovarsaldo(cantidad, id)==true) {
+			return true;
+		}else {
+			return false;
 		}
 	}
 }

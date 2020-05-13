@@ -1,6 +1,10 @@
 package modelo;
 
 import java.util.LinkedList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import javax.swing.JOptionPane;
 
 import modelo.Cuenta;
 /**
@@ -135,6 +139,33 @@ public class Usuario {
  */
 	public void setTelefono(int telefono) {
 		this.telefono = telefono;
+	}
+/**
+ * 	
+ * @param nif
+ * @return true si es valida y false si no
+ */
+	public static boolean validarNIF(String nif) {
+	    boolean correcto = false;
+	    Pattern pattern = Pattern.compile("(\\d{1,8})([TRWAGMYFPDXBNJZSQVHLCKEtrwagmyfpdxbnjzsqvhlcke])");
+	    Matcher matcher = pattern.matcher(nif);
+	    if (matcher.matches()) {
+	        String letra = matcher.group(2);
+	        String letras = "TRWAGMYFPDXBNJZSQVHLCKE";
+	        int index = Integer.parseInt(matcher.group(1));
+	        index = index % 23;
+	        String reference = letras.substring(index, index + 1);
+	        if (reference.equalsIgnoreCase(letra)) {
+	            correcto = true;
+	        } else {
+	            correcto = false;
+	            JOptionPane.showMessageDialog(null,"DNI incorrecto");
+	        }
+	    } else {
+	        correcto = false;
+	        JOptionPane.showMessageDialog(null,"DNI incorrecto");
+	    }
+	    return correcto;
 	}
 	
 	@Override

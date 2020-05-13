@@ -113,10 +113,12 @@ public class operacion extends JFrame {
 				int id=Integer.parseInt(nc1.getText());
 				int saldo=Integer.parseInt(sal.getText());
 				if(con.verificarTitularOperacion(id, nif.getText())==true) {
-					con.Retirada(id, saldo);
-					int id2=Integer.parseInt(nc2.getText());
-					con.Transferir(id2, saldo);
-					con.Operar("Transferencia", saldo, id, nif.getText());
+					if(con.comprovarsaldo(saldo, id)==false) {
+						con.Retirada(id, saldo);
+						int id2=Integer.parseInt(nc2.getText());
+						con.Transferir(id2, saldo);
+						con.Operar("Transferencia", saldo, id, nif.getText());
+					}
 				}
 			}
 		});
@@ -127,8 +129,10 @@ public class operacion extends JFrame {
 				int id=Integer.parseInt(nc1.getText());
 				int saldo=Integer.parseInt(sal.getText());
 				if(con.verificarTitularOperacion(id, nif.getText())==true) {
-					con.Retirada(id, saldo);
-				    con.Operar("Retirar", saldo, id, nif.getText());
+					if(con.comprovarsaldo(saldo, id)==false) {
+						con.Retirada(id, saldo);
+					    con.Operar("Retirar", saldo, id, nif.getText());
+					}
 				}
 			}
 		});
