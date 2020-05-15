@@ -7,12 +7,13 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 public class conexion {
-
+	
 	private static String CONTROLADOR = "com.mysql.jdbc.Driver";
+	//localhoost local
     private static String URL = "jdbc:mysql://localhost:3307/uscaja";
     private static String USUARIO = "root";
     private static String CLAVE = "usbw";
-    
+  //localhoost clase
     private static String url = "jdbc:mysql://79.148.236.236:3306/mmateos_uscaja?noAccessToProcedureBodies=true";
     private static String usu = "roott";
     private static String cont = "usbwerserve@10052020";
