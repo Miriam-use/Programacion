@@ -40,8 +40,8 @@ public class MUsuario extends JFrame {
 
 	controlador con=new controlador();
 	Usuario us = new Usuario();
-	private JTable table;
 	private JTextField valor;
+	private JTable table;
 	//JTable table;
 	/**
 	 * Launch the application.
@@ -204,6 +204,10 @@ public class MUsuario extends JFrame {
 		btnNewButton.setBounds(10, 324, 98, 38);
 		contentPane.add(btnNewButton);
 		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(10, 11, 435, 134);
+		contentPane.add(scrollPane);
+		
 		table = new JTable();
 		table.setModel(new DefaultTableModel(
 			new Object[][] {
@@ -212,8 +216,7 @@ public class MUsuario extends JFrame {
 					"nif", "nombre", "apellido", "a\u00F1o", "direccion", "email", "telefono"
 			}
 		));
-		table.setBounds(10, 11, 435, 126);
-		contentPane.add(table);
+		scrollPane.setViewportView(table);
 		
 	}
 }

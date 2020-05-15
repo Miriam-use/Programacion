@@ -18,6 +18,7 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.table.DefaultTableModel;
 
 import controlador.controlador;
+import javax.swing.JScrollPane;
 
 public class CCuenta extends JFrame {
 
@@ -94,6 +95,10 @@ public class CCuenta extends JFrame {
 		btnMenu.setBounds(345, 366, 89, 23);
 		contentPane.add(btnMenu);
 		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(10, 150, 414, 77);
+		contentPane.add(scrollPane);
+		
 		cuenta = new JTable();
 		cuenta.setModel(new DefaultTableModel(
 			new Object[][] {
@@ -102,12 +107,15 @@ public class CCuenta extends JFrame {
 				"numero cuenta", "fecha creacion", "saldo"
 			}
 		));
-		cuenta.setBounds(10, 150, 414, 77);
-		contentPane.add(cuenta);
+		scrollPane.setViewportView(cuenta);
 		
 		JLabel lblBuscarPor = new JLabel("buscar por:");
 		lblBuscarPor.setBounds(23, 11, 98, 14);
 		contentPane.add(lblBuscarPor);
+		
+		JScrollPane scrollPane_1 = new JScrollPane();
+		scrollPane_1.setBounds(10, 262, 414, 78);
+		contentPane.add(scrollPane_1);
 		
 		operacion = new JTable();
 		operacion.setModel(new DefaultTableModel(
@@ -117,8 +125,7 @@ public class CCuenta extends JFrame {
 				"num operacion", "tipo", "fecha de operacion", "cantidad", "num cuenta", "titular"
 			}
 		));
-		operacion.setBounds(10, 263, 414, 77);
-		contentPane.add(operacion);
+		scrollPane_1.setViewportView(operacion);
 		
 		JLabel lblCuenta = new JLabel("Cuenta:");
 		lblCuenta.setBounds(10, 125, 75, 14);
@@ -126,8 +133,7 @@ public class CCuenta extends JFrame {
 		
 		JLabel lblOperacciones = new JLabel("Operacciones:");
 		lblOperacciones.setBounds(10, 238, 98, 14);
-		contentPane.add(lblOperacciones);
-		
+		contentPane.add(lblOperacciones);		
 		
 	}
 }
