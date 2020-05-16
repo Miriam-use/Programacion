@@ -69,7 +69,12 @@ public class controlador {
 			return false;
 		}	
 	}	
-	
+/**
+ * 	
+ * @param id
+ * @param nif
+ * @return true
+ */
 	public boolean verificarTitularOperacion(int id, String nif) {
 		if(m.verificarTitularOperacion(id, nif)==true) {
 			return true;
@@ -80,6 +85,19 @@ public class controlador {
 	
 	public boolean eliminarTitular(int id, String nif) {
 		if(m.eliminarTitular(id, nif)==true) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+/**
+ * 	
+ * @param id
+ * @param nif
+ * @return true
+ */
+	public boolean nuevoNoTitular(int id, String nif) {
+		if(m.nuevoNoTitular(id, nif)==true) {
 			return true;
 		}else {
 			return false;

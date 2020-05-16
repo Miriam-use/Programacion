@@ -45,7 +45,7 @@ public class MCuenta extends JFrame {
 	public MCuenta() {
 		setTitle("US-CAJA/mantenimiento-cuenta");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 205);
+		setBounds(100, 100, 450, 312);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -65,7 +65,7 @@ public class MCuenta extends JFrame {
 				}
 			}
 		});
-		btnAador.setBounds(82, 91, 98, 38);
+		btnAador.setBounds(66, 91, 98, 38);
 		contentPane.add(btnAador);
 		
 		JButton btnEliminar = new JButton("Eliminar");
@@ -78,8 +78,32 @@ public class MCuenta extends JFrame {
 				}
 			}
 		});
-		btnEliminar.setBounds(235, 91, 98, 38);
+		btnEliminar.setBounds(272, 91, 98, 38);
 		contentPane.add(btnEliminar);
+		
+		JButton btnEliminaTitular = new JButton("Elimina Titular");
+		btnEliminaTitular.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int num=Integer.parseInt(numCuent.getText());
+				if(con.verificarTitular(num)==true) {
+					con.eliminarTitular(num, nifUsu.getText());
+				}
+			}
+		});
+		btnEliminaTitular.setBounds(260, 158, 118, 38);
+		contentPane.add(btnEliminaTitular);
+		
+		JButton btnAadirNoTitular = new JButton("A\u00F1adir No Titular");
+		btnAadirNoTitular.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				int num=Integer.parseInt(numCuent.getText());
+				if(con.verificarCuenta(nifUsu.getText())==true) {
+					con.nuevoNoTitular(num, nifUsu.getText());
+				}
+			}
+		});
+		btnAadirNoTitular.setBounds(59, 158, 118, 38);
+		contentPane.add(btnAadirNoTitular);
 		
 		JLabel lblNCuenta = new JLabel("n\u00BA Cuenta:");
 		lblNCuenta.setBounds(10, 25, 72, 14);
@@ -106,7 +130,9 @@ public class MCuenta extends JFrame {
 				new menu().setVisible(true);
 			}
 		});
-		btnMenu.setBounds(345, 143, 89, 23);
+		btnMenu.setBounds(345, 250, 89, 23);
 		contentPane.add(btnMenu);
+		
+		
 	}
 }

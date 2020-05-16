@@ -124,7 +124,7 @@ public class Modelo {
         PreparedStatement prst = null;
         ResultSet rs = null;
         ResultSet rows;
-        String nueus="SELECT n_cuenta FROM titular WHERE n_cuenta='"+id+"' AND nif_usuario='"+nif+"'";
+        String nueus="SELECT n_cuenta FROM titular WHERE n_cuenta='"+id+"' AND nif_usuario='"+nif+"' AND titula='s'";
         try {
 			conn = conx.conectar();
 			prst = conn.prepareStatement(nueus);
@@ -143,7 +143,12 @@ public class Modelo {
             conx.close(conn);
         }	
 	}	
-	
+/**
+ * 
+ * @param id
+ * @param nif
+ * @return true
+ */
 	public boolean eliminarTitular(int id, String nif) {
 		Connection conn = null;
         PreparedStatement prst = null;
@@ -153,7 +158,34 @@ public class Modelo {
         try {
 			conn = conx.conectar();
 			prst = conn.prepareStatement(nueus);
-			rows = prst.executeUpdate();//registros afectados         
+			rows = prst.executeUpdate();//registros afectados   
+			JOptionPane.showMessageDialog(null,"Titular eliminado");
+			return true;
+        }catch (SQLException e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null,"ERROR en la operacion"); 
+            return false;
+        } finally {
+            conx.close(conn);
+        }
+	}
+/**
+ * 
+ * @param id
+ * @param nif
+ * @return
+ */
+	public boolean nuevoNoTitular(int id, String nif) {
+		Connection conn = null;
+        PreparedStatement prst = null;
+        ResultSet rs = null;
+        int rows = 0; //registros afectados
+        String nueus="INSERT INTO titular (n_titular, n_cuenta, nif_usuario, titula) VALUES (NULL, '"+id+"', '"+nif+"', 'n')";
+        try {
+			conn = conx.conectar();
+			prst = conn.prepareStatement(nueus);
+			rows = prst.executeUpdate();//registros afectados   
+			JOptionPane.showMessageDialog(null,"Nuevo no titular agregado");
 			return true;
         }catch (SQLException e) {
             e.printStackTrace();
@@ -169,11 +201,12 @@ public class Modelo {
         PreparedStatement prst = null;
         ResultSet rs = null;
         int rows = 0; //registros afectados
-        String nueus="INSERT INTO titular (n_titular, n_cuenta, nif_usuario) VALUES (NULL, '"+id+"', '"+nif+"')";
+        String nueus="INSERT INTO titular (n_titular, n_cuenta, nif_usuario, titula) VALUES (NULL, '"+id+"', '"+nif+"', 's')";
         try {
 			conn = conx.conectar();
 			prst = conn.prepareStatement(nueus);
 			rows = prst.executeUpdate();//registros afectados   
+			JOptionPane.showMessageDialog(null,"Nuevo titular agregado");
 			return true;
         }catch (SQLException e) {
             e.printStackTrace();
