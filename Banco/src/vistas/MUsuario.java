@@ -154,6 +154,7 @@ public class MUsuario extends JFrame {
 		btnEliminar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				con.eliminarUsuario(nif.getText());
+				con.eliminarTitularUsu(nif.getText());
 			}
 		});
 		btnEliminar.setBounds(176, 264, 98, 38);

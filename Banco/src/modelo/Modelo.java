@@ -170,6 +170,32 @@ public class Modelo {
         }
 	}
 /**
+ * 	
+ * @param nif
+ * @return true si se elimina
+ */
+	public boolean eliminarTitularUsu(String nif) {
+		Connection conn = null;
+        PreparedStatement prst = null;
+        ResultSet rs = null;
+        int rows = 0; //registros afectados
+        String nueus="DELETE FROM titular WHERE nif_usuario='"+nif+"'";
+        try {
+			conn = conx.conectar();
+			prst = conn.prepareStatement(nueus);
+			rows = prst.executeUpdate();//registros afectados   
+			JOptionPane.showMessageDialog(null,"Titular eliminado");
+			return true;
+        }catch (SQLException e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null,"ERROR en la operacion"); 
+            return false;
+        } finally {
+            conx.close(conn);
+        }
+	}
+	
+/**
  * 
  * @param id
  * @param nif
