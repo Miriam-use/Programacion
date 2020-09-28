@@ -1,0 +1,14 @@
+EJERCICIOS 1
+
+En el ejercicio 1 del formulario se ha utilizado en la ventana de inicio un 
+GridBagLayout y en la segunda ventana utilice un GroupLayout.
+
+
+EJERCICIOS 2
+
+En el ejercicio 2 se ha utilizado un GridBagLayout
+
+
+EJERCICIOS 3
+
+En el ejercicio 2 se ha utilizado un GroupLayout, MigLayout, BocLayout
