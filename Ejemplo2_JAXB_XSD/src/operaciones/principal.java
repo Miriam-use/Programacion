@@ -28,7 +28,7 @@ public class principal {
 		// Comprobar que el nmúmero de venta no exista
 		insertarventa(4, "Cliente 1", 10, "16-12-2015");
 		visualizarxml();
-		modificarArticulo(1, "ART-113", "Pala Padel NOX", 25, 75);
+		modificarArticulo(1, "ART-112", "Pala Padel NOX", 25, 75);
 		modificarventa(4, "Cliente 2", 10, "09-10-2020");
 		borrar(4);
 	}
@@ -294,11 +294,11 @@ public class principal {
 				m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
 				m.marshal(jaxbElement, new FileOutputStream("./ventasarticulos.xml"));
 
-				System.out.println("Venta modificado: " + numeventa);
+				System.out.println(true+" Venta modificado: " + numeventa);
 
 			} else
 
-				System.out.println("En número de venta no existe: " + numeventa);			
+				System.out.println(false+" En número de venta no existe: " + numeventa);			
 
 		} catch (JAXBException je) {
 			System.out.println(je.getCause());
@@ -372,10 +372,10 @@ public class principal {
 					m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
 					m.marshal(jaxbElement, new FileOutputStream("./ventasarticulos.xml"));			
 					
-					System.out.println("Articulo modificado: " + cod);
+					System.out.println(true+" Articulo modificado: " + cod);
 			}else {
 
-				System.out.println("Articulo ha modificado no existe: " + cod);
+				System.out.println(false+" Articulo no encontrado: " + cod);
 			}
 			
 		} catch (JAXBException je) {
