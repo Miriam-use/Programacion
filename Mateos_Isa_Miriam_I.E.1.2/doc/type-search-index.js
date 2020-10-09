@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"clasesdatos","l":"DatoCentro.Centro"},{"p":"clasesdatos","l":"DatoCentro"},{"p":"clasesdatos","l":"DatosType"},{"p":"operaciones","l":"Main"},{"p":"clasesdatos","l":"ObjectFactory"},{"p":"operaciones","l":"Operacion"},{"p":"clasesdatos","l":"Profesor"}]

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<datoscentro xmlns="http://www.example.org/NewXMLSchema">
+    <centro>
+        <centro>
+            <codigocentro>1</codigocentro>
+            <nombrecentro>Sur</nombrecentro>
+            <direccion>Calle Sur</direccion>
+            <director>
+                <codigoprofesor>3</codigoprofesor>
+                <nombreprofesor>Manolo</nombreprofesor>
+            </director>
+        </centro>
+    </centro>
+    <profesores>
+        <codigoprofesor>1</codigoprofesor>
+        <nombreprofesor>Paco</nombreprofesor>
+    </profesores>
+    <profesores>
+        <codigoprofesor>2</codigoprofesor>
+        <nombreprofesor>Ana</nombreprofesor>
+    </profesores>
+    <profesores>
+        <codigoprofesor>3</codigoprofesor>
+        <nombreprofesor>Manolo</nombreprofesor>
+    </profesores>
+</datoscentro>
