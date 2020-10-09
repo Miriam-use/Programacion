@@ -8,7 +8,6 @@
 
 package clasesdatos;
 
-import java.util.ArrayList;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.List;
@@ -49,16 +48,6 @@ import javax.xml.bind.annotation.XmlType;
     "precio"
 })
 public class DatosArtic {
-	
-	@XmlElement(required = true)
-    protected List<DatosArtic> DatosArtic;
-	
-	public List<DatosArtic> getDatosArtic() {
-        if (DatosArtic == null) {
-        	DatosArtic = new ArrayList<DatosArtic>();
-        }
-        return this.DatosArtic;
-    }		
 	
     @XmlElement(required = true)
     protected String codigo;

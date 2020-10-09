@@ -9,6 +9,8 @@ public class Main {
 		op.visualizarxml();
 		
 		op.crearProfesor("1", "Sara");
+		
+		op.visualizarxml();
 	}
 
 }

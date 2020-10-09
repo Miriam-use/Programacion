@@ -1,6 +1,5 @@
 package operaciones;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -14,22 +13,6 @@ import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.Source;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerException;
-import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.dom.DOMSource;
-import javax.xml.transform.stream.StreamResult;
-
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.NodeList;
-import org.xml.sax.SAXException;
-
-import com.sun.tools.xjc.generator.bean.ImplStructureStrategy.Result;
 
 import clasesdatos.Ventas.Venta;
 import clasesdatos.*;
@@ -46,7 +29,7 @@ public class principal {
 		insertarventa(4, "Cliente 1", 10, "16-12-2015");
 		visualizarxml();
 		modificarArticulo(1, "ART-112", "Pala Padel NOX", 25, 75);
-		modificarventa(4, "Cliente 2", 10, "16-12-2015");
+		modificarventa(4, "Cliente 2", 10, "09-10-2020");
 		borrar(4);
 	}
 	
@@ -354,8 +337,7 @@ public class principal {
 			
 			DatosArtic art = miventa.getArticulo();
 			
-			List listart = new ArrayList();
-			listart = art.getDatosArtic();
+			ArrayList<DatosArtic> listart = new ArrayList<DatosArtic>();
 			
 			int existe = 0; // si no existe, 1 si existe
 			for (int i = 0; i < listart.size(); i++) {
@@ -393,7 +375,7 @@ public class principal {
 					System.out.println("Articulo modificado: " + cod);
 			}else {
 
-				System.out.println("En número de venta no existe: " + cod);
+				System.out.println("Articulo modificado: " + cod);
 			}
 			
 		} catch (JAXBException je) {
