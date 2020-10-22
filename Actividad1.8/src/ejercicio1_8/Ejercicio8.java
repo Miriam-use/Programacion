@@ -5,11 +5,16 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-public class Ejemplo5 {
+public class Ejercicio8 {
 
 	public static void main(String[] args) throws IOException {
 
-		Process p = new ProcessBuilder("CMD", "/C", "DATE").start();
+Process p = new ProcessBuilder("CMD", "/C", "DATE").start();
+		
+		ProcessBuilder pb = new ProcessBuilder("CMD", "/C", "DATE");
+		
+		File fout = new File("salida.txt");
+		File ferr = new File("error.txt");
 		
 		//escritura -- envia entrada a DATE
 		OutputStream os = p.getOutputStream();
@@ -29,6 +34,12 @@ public class Ejemplo5 {
 		try {
 			exitVal = p.waitFor();
 			System.out.println("valor de salida: "+exitVal);
+			
+			pb.redirectInput(ProcessBuilder.Redirect.from(fout));
+			pb.redirectOutput(ProcessBuilder.Redirect.INHERIT);
+			pb.redirectError(ferr);
+			pb.start();
+			
 		}catch (InterruptedException e) {
 			e.printStackTrace();
 		}

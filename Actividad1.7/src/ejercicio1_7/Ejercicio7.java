@@ -6,7 +6,7 @@ import java.io.OutputStream;
 import java.io.InputStream;
 
 
-public class ModificarEjemplo5 {
+public class Ejercicio7 {
 
 	public static void main(String[] args) throws IOException {
 
