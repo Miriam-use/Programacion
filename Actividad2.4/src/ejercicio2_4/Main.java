@@ -19,10 +19,10 @@ public class Main {
 			if(cadena.equals("*")) {
 				break;
 			}
-			if(cadena.equalsIgnoreCase("s")) {
+			if(cadena.equalsIgnoreCase("s")||cadena.equalsIgnoreCase("S")) {
 				h.suspende();
 			}
-			if(cadena.equalsIgnoreCase("r")) {
+			if(cadena.equalsIgnoreCase("r")||cadena.equalsIgnoreCase("R")) {
 				h.Reanuda();
 			}
 		}

@@ -21,7 +21,7 @@ public class MiHilo extends Thread{
 				suspender.esperandoParaReanudar();
 				sleep(1000);
 			}
-			System.out.println("Hilo finalizado");
+			System.out.println("finalizado hilo");
 		}catch (InterruptedException e) {
 			Thread.currentThread().interrupt();
 			throw new AssertionError(e);
