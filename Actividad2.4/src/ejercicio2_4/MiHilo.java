@@ -2,7 +2,7 @@ package ejercicio2_4;
 
 public class MiHilo extends Thread{
 
-	private SolicitaSupspender suspender = new SolicitaSupspender();
+	SolicitaSupspender suspender = new SolicitaSupspender();
 	private long CONTADOR = 0;
 	
 	public void suspende() {
@@ -23,7 +23,8 @@ public class MiHilo extends Thread{
 			}
 			System.out.println("Hilo finalizado");
 		}catch (InterruptedException e) {
-			e.printStackTrace();
+			Thread.currentThread().interrupt();
+			throw new AssertionError(e);
 		}
 	}
 	

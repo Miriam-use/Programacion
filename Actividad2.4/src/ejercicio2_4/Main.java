@@ -22,7 +22,7 @@ public class Main {
 			if(cadena.equalsIgnoreCase("s")) {
 				h.suspende();
 			}
-			if(cadena.equalsIgnoreCase("n")) {
+			if(cadena.equalsIgnoreCase("r")) {
 				h.Reanuda();
 			}
 		}
