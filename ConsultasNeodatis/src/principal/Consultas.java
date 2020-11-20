@@ -22,22 +22,24 @@ public class Consultas {
 	
 	public static void main(String[] args) {
 		
-		//visualizacionVentas();
+		visualizacionVentas();
 			System.out.println("");
-		//visualizacionSumaArticulosVentas();
+		visualizacionSumaArticulosVentas();
 			System.out.println("");
-		//visualizacionCliente();
+		visualizacionCliente();
 			System.out.println("");
-		//articuloMasVendido();
+		articuloMasVendido();
 			System.out.println("");
-		//media();
+		media();
 			System.out.println("");
 		clienteMaxGasta();
 			System.out.println("");
-		//clienteMasVentas();
+		clienteMasVentas();
 
 	}
 	/**
+	 * 
+	 * Método que visualice los datos de cada venta.
 	 * 
 	 */
 	public static void visualizacionVentas() {
@@ -63,11 +65,13 @@ public class Consultas {
 						+ "  "+objectValues.getByIndex(1)+" - "+objectValues.getByIndex(2)+" - "+objectValues.getByIndex(3)+" -  "
 						+objectValues.getByIndex(4)+" - "+ar.getPvp());
 				
-			System.out.println("");
 		}		
 		odb.close();
 	}
 	/**
+	 * 
+	 * Método que visualice por cada articulo la suma de unidades vendidas, el
+	 * importe, y el número de ventas en las que se ha vendido.
 	 * 
 	 */
 	public static void visualizacionSumaArticulosVentas() {
@@ -96,12 +100,13 @@ public class Consultas {
 			System.out.println(ar.getCodarti()+"  -  "+ar.getDenom()+"  -  "+ar.getStock()+"  -  "+ar.getPvp()+"  -  "+sumUniven+"  -  "+sumImporte
 					+"  -  "+numventa);
 				
-			System.out.println("");
 		}		
 		
 		odb.close();
 	}
 	/**
+	 * 
+	 * Método que visualice por cada cliente este informe.
 	 * 
 	 */
 	public static void visualizacionCliente() {
@@ -134,8 +139,9 @@ public class Consultas {
 		}
 		odb.close();
 	}
-	
 	/**
+	 * 
+	 * Nombre de artículo más vendido (más número de ventas).
 	 * 
 	 */
 	public static void articuloMasVendido() {
@@ -158,6 +164,8 @@ public class Consultas {
 		odb.close();
 	}
 	/**
+	 * 
+	 * Media de importe de ventas por artículo.
 	 * 
 	 */
 	public static void media() {
@@ -183,6 +191,9 @@ public class Consultas {
 	}
 	/**
 	 * 
+	 * Nombre de cliente que más ha gastado (total importe de cliente
+	 * máximo).
+	 * 
 	 */
 	public static void clienteMaxGasta() {
 		ODB odb = ODBFactory.open("ARTICVENTAS.DAT");
@@ -192,21 +203,18 @@ public class Consultas {
 				field("codventa")
 				.field("numcli.nombre"));
 		
+		int max = 0;
+		Object nombre = null;
 		while(articulo.hasNext() && valores.hasNext()) {
 			
 			Articulos ar =articulo.next();
 			ObjectValues objectValues = valores.next();
 			
-			int numventa = 0;
-			if(ar.getCompras() != null) {
-				numventa = ar.getCompras().size();
-			}
-			
 			ArrayList<Integer> list = new ArrayList<Integer>();
 			float sumImporte = ar.getStock()+ar.getPvp();
 			list.add((int) sumImporte);
 			
-			int max = Integer.MIN_VALUE; 
+			max = Integer.MIN_VALUE; 
 			 for(int i=0; i<list.size(); i++){ 
 				 
 				 if(list.get(i) > max){ 
@@ -214,12 +222,17 @@ public class Consultas {
 				 } 
 				 
 			 } 
-				System.out.println("El cliente "+objectValues.getByIndex(1)+" es el que mas a gastado con: "+max);
+			 
+			 nombre = objectValues.getByIndex(1);
 		}
+		
+		System.out.println("El cliente "+nombre+" es el que mas a gastado con: "+max);
 		
 		odb.close();
 	}
 	/**
+	 * 
+	 * Nombre de cliente con más ventas (más número de ventas).
 	 * 
 	 */
 	public static void clienteMasVentas() {
